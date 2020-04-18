@@ -9,7 +9,8 @@ class FixCompaudit < Formula
   depends_on "zsh"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+        ENV['VERSION'] = version
+        system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
