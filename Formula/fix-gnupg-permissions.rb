@@ -13,6 +13,7 @@ class FixGnupgPermissions < Formula
   end
 
   test do
-    system "#{bin}/fix-gnupg-permissions"
+    system "#{bin}/fix-gnupg-permissions", "-h"
+    system "#{bin}/fix-gnupg-permissions", "-V"
   end
 end
