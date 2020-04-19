@@ -1,5 +1,5 @@
 class GameOfLife < Formula
-  desc "Fixes problems reported by compuaudit"
+  desc "An implementation of Conway's Game of life"
   homepage "https://github.com/PurpleBooth/game-of-life"
   url "https://github.com/PurpleBooth/game-of-life/archive/v1.0.8.tar.gz"
   version "1.0.8"
