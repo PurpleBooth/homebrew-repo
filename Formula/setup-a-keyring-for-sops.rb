@@ -6,7 +6,7 @@ class SetupAKeyringForSops < Formula
   sha256 "82545577ae01c2b3d2031b7d7d473e38c0cf8374c40e7b6e66ec1169b98900e8"
 
   depends_on "rust" => :build
-  depends_on 'google-cloud-sdk'
+  depends_on GCloudRequirement
 
   def install
         ENV['VERSION'] = version
@@ -16,5 +16,17 @@ class SetupAKeyringForSops < Formula
   test do
     system "#{bin}/setup-a-keyring-for-sops", "-h"
     system "#{bin}/setup-a-keyring-for-sops", "-V"
+  end
+end
+
+class GCloudRequirement < Requirement
+  fatal true
+
+  satisfy(:build_env => false) { which("gcloud") }
+
+  def message; <<~EOS
+    gcloud is required; install it via:
+      brew cask install google-cloud-sdk
+  EOS
   end
 end
