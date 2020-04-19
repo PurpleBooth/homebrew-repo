@@ -6,7 +6,7 @@ class FixCompaudit < Formula
   sha256 "c3971e6520e3bbda868be2f2d2cd8f45925dc16cec8d0eceec2dfd95eb454bca"
 
   depends_on "rust" => :build
-  depends_on "zsh"
+  depends_on formula: "zsh"
 
   def install
         ENV['VERSION'] = version
