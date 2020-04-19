@@ -1,9 +1,9 @@
 class GameOfLife < Formula
   desc "Fixes problems reported by compuaudit"
   homepage "https://github.com/PurpleBooth/game-of-life"
-  url "https://github.com/PurpleBooth/game-of-life/archive/v1.0.3.tar.gz"
-  version "1.0.3"
-  sha256 "c0676b70cc43391798c742badf39c5c213f95f7b7ff7dff17f795211075bd81a"
+  url "https://github.com/PurpleBooth/game-of-life/archive/v1.0.4.tar.gz"
+  version "1.0.4"
+  sha256 "16eb7267df6dabc101191d7d77beb308c931dc6905c293b1ec1efb38790e812f"
 
   depends_on "rust" => :build
 
