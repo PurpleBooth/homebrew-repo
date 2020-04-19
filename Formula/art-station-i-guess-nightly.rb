@@ -1,12 +1,12 @@
-class ArtStationIGuess < Formula
+class ArtStationIGuessNightly < Formula
   desc "Download art from Art Station for wallpaper"
   homepage "https://github.com/PurpleBooth/art-station-i-guess"
   url "https://github.com/PurpleBooth/art-station-i-guess/archive/v0.1.2.tar.gz"
-  version "0.1.2"
-  sha256 "82545577ae01c2b3d2031b7d7d473e38c0cf8374c40e7b6e66ec1169b98900e8"
+  version ""
+  sha256 ""
 
   depends_on "rust" => :build
-  conflicts_with "art-station-i-guess-nightly", :because => "art-station-i-guess-nightly ships a art-station-i-guess binary"
+  conflicts_with "art-station-i-guess", :because => "art-station-i-guess also ships a art-station-i-guess binary"
 
   def install
         ENV['VERSION'] = version
