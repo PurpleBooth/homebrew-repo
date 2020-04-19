@@ -13,8 +13,8 @@ end
 class SetupAKeyringForSops < Formula
   desc "Use gcloud to setup everything needed for SOPS"
   homepage "https://github.com/PurpleBooth/setup-a-keyring-for-sops"
-  url "https://github.com/PurpleBooth/art-station-i-guess/archive/v0.1.2.tar.gz"
-  version "0.1.2"
+  url "https://github.com/PurpleBooth/art-station-i-guess/archive/v0.0.0.tar.gz"
+  version "0.0.0"
   sha256 "82545577ae01c2b3d2031b7d7d473e38c0cf8374c40e7b6e66ec1169b98900e8"
 
   depends_on "rust" => :build
