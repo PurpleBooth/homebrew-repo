@@ -15,7 +15,11 @@ class PbGitHooks < Formula
   end
 
   test do
-    system "#{bin}/art-station-i-guess", "-h"
-    system "#{bin}/art-station-i-guess", "-V"
+    system "#{bin}/pb-commit-msg", "-h"
+    system "#{bin}/pb-commit-msg", "-V"
+    system "#{bin}/pb-pre-commit", "-h"
+    system "#{bin}/pb-pre-commit", "-V"
+    system "#{bin}/pb-prepare-commit-msg", "-h"
+    system "#{bin}/pb-prepare-commit-msg", "-V"
   end
 end
