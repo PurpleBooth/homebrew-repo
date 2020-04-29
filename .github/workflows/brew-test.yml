@@ -10,6 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: brew cask install google-cloud-sdk
     - run: mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
     - run: cp -r ./. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
 
