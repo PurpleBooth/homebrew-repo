@@ -7,7 +7,6 @@ class ArtStationIGuess < Formula
   depends_on "rust" => :build
 
   def install
-    ENV['VERSION'] = version
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
