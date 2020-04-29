@@ -5,9 +5,9 @@ class GCloudRequirement < Requirement
 
   def message
     <<~EOS
-    gcloud is required; install it via:
-      brew cask install google-cloud-sdk
-  EOS
+      gcloud is required; install it via:
+        brew cask install google-cloud-sdk
+    EOS
   end
 end
 
