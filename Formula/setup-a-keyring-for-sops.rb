@@ -3,7 +3,8 @@ class GCloudRequirement < Requirement
 
   satisfy(:build_env => false) { which("gcloud") }
 
-  def message; <<~EOS
+  def message
+    <<~EOS
     gcloud is required; install it via:
       brew cask install google-cloud-sdk
   EOS
