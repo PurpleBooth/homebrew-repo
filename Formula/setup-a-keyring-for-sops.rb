@@ -14,8 +14,8 @@ end
 class SetupAKeyringForSops < Formula
   desc "Use gcloud to setup everything needed for SOPS"
   homepage "https://github.com/PurpleBooth/setup-a-keyring-for-sops"
-  url "https://github.com/PurpleBooth/setup-a-keyring-for-sops/archive/v0.8.4.tar.gz"
-  sha256 "d3602c0fe6a2d800d89eb3d846b458530f53a9a459740b8b91505741d60257cf"
+  url "https://github.com/PurpleBooth/setup-a-keyring-for-sops/archive/v0.8.5.tar.gz"
+  sha256 "98b802f73800262219d85246332adb2273c683377c7e64af0982d5713523a72e"
 
   depends_on "rust" => :build
   depends_on GCloudRequirement
