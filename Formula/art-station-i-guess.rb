@@ -1,8 +1,8 @@
 class ArtStationIGuess < Formula
   desc "Download art from Art Station for wallpaper"
   homepage "https://github.com/PurpleBooth/art-station-i-guess"
-  url "https://github.com/PurpleBooth/art-station-i-guess/archive/v0.13.30.tar.gz"
-  sha256 "6497cc621075642d6b6c551e5381b880864338172ab44f53348f55673eb50208"
+  url "https://github.com/PurpleBooth/art-station-i-guess/archive/v0.13.31.tar.gz"
+  sha256 "61bc8db0419a8541cf893c131b59f3fc7e1840f54b96453385335341c6204230"
 
   depends_on "rust" => :build
 
