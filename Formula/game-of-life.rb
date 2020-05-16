@@ -1,8 +1,8 @@
 class GameOfLife < Formula
   desc "PurpleBooth's implementation of Conway's Game of life"
   homepage "https://github.com/PurpleBooth/game-of-life"
-  url "https://github.com/PurpleBooth/game-of-life/archive/v1.13.2.tar.gz"
-  sha256 "7148d283d243893778192a4db16e11402bd2338bfada8789f2aec8c92a2ba282"
+  url "https://github.com/PurpleBooth/game-of-life/archive/v1.13.3.tar.gz"
+  sha256 "81673116acbb9cfa01329837bab67f8c9cd8338985ebb2abb153316681762185"
 
   depends_on "rust" => :build
 
