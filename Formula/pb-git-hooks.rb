@@ -14,8 +14,6 @@ class PbGitHooks < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./pb-git-hooks/"
   end
 
-
-  
   test do
     system "#{bin}/pb-commit-msg", "-h"
     system "#{bin}/pb-commit-msg", "-V"
