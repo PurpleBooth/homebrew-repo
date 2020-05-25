@@ -11,8 +11,11 @@ class PbGitHooks < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./pb-pre-commit/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./pb-prepare-commit-msg/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-authors/"
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "./pb-git-hooks/"
   end
 
+
+  
   test do
     system "#{bin}/pb-commit-msg", "-h"
     system "#{bin}/pb-commit-msg", "-V"
@@ -22,5 +25,7 @@ class PbGitHooks < Formula
     system "#{bin}/pb-prepare-commit-msg", "-V"
     system "#{bin}/git-authors", "-h"
     system "#{bin}/git-authors", "-V"
+    system "#{bin}/pb-git-hooks", "-h"
+    system "#{bin}/pb-git-hooks", "-V"
   end
 end
