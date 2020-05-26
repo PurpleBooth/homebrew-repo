@@ -1,8 +1,8 @@
 class FixCompaudit < Formula
   desc "Fixes problems reported by compuaudit"
   homepage "https://github.com/PurpleBooth/fix-compaudit"
-  url "https://github.com/PurpleBooth/fix-compaudit/archive/v0.9.6.tar.gz"
-  sha256 "9196f88c960bc4ce28d7fe63203780cdcbc8246f2ed592168734732864cc7206"
+  url "https://github.com/PurpleBooth/fix-compaudit/archive/v0.9.7.tar.gz"
+  sha256 "28ba2e7b1bf206386cd4a93a12cd2b28e9ce0b97b48c25a26e7229644b62d84f"
 
   depends_on "rust" => :build
   depends_on "zsh"
