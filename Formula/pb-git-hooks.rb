@@ -1,8 +1,8 @@
 class PbGitHooks < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/pb-git-hooks"
-  url "https://github.com/PurpleBooth/pb-git-hooks/archive/v2.73.0.tar.gz"
-  sha256 "21b5da771d58779f6d8203e66c947a6209bdbfce4e18521b4d4117e6e7805c4d"
+  url "https://github.com/PurpleBooth/pb-git-hooks/archive/v2.74.0.tar.gz"
+  sha256 "83e7f8531dcbce5505a3f843100466f098397388c438ab6c6a164084cf711af6"
 
   depends_on "rust" => :build
 
