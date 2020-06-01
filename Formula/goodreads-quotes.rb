@@ -1,8 +1,8 @@
 class GameOfLife < Formula
   desc "Get a random quote from random categories in goodreads"
   homepage "https://github.com/PurpleBooth/goodreads-quotes"
-  url "https://github.com/PurpleBooth/goodreads-quotes/archive/x.tar.gz"
-  sha256 "unknown"
+  url "https://github.com/PurpleBooth/goodreads-quotes/archive/v0.1.0.tar.gz"
+  sha256 "f87c51ac5838716fe2815db6349afea649ac25e00eed5423160a3d470b27523b"
 
   depends_on "rust" => :build
 
