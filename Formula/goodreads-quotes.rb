@@ -1,4 +1,4 @@
-class GameOfLife < Formula
+class GoodreadsQuotes < Formula
   desc "Get a random quote from random categories in goodreads"
   homepage "https://github.com/PurpleBooth/goodreads-quotes"
   url "https://github.com/PurpleBooth/goodreads-quotes/archive/v0.1.0.tar.gz"
