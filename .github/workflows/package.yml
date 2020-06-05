@@ -56,6 +56,7 @@ jobs:
           GIT_USER_EMAIL: ${{ github.actor }}@users.noreply.github.com
       - run: ./bin/install-dependencies.sh
       - run: ./bin/tap-without-clone.sh
+      - run: ./bin/bump-all-revision.sh
       - run: ./bin/bottle-all.sh
         env:
           BINTRAY_API_URL: https://api.bintray.com
