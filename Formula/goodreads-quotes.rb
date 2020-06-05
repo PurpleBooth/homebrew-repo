@@ -3,6 +3,7 @@ class GoodreadsQuotes < Formula
   homepage "https://github.com/PurpleBooth/goodreads-quotes"
   url "https://github.com/PurpleBooth/goodreads-quotes/archive/v0.11.0.tar.gz"
   sha256 "4cc46a9241ebc8a3a7c4119278cb7d1dfa38caec11ac87d228a7ccce21486a1e"
+  revision 1
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
