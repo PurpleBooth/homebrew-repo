@@ -3,7 +3,7 @@ class FixCompaudit < Formula
   homepage "https://github.com/PurpleBooth/fix-compaudit"
   url "https://github.com/PurpleBooth/fix-compaudit/archive/v0.14.0.tar.gz"
   sha256 "edf002751ca3ce39b0519153ce29384b715cb9f4aaed22f5b42e6f182fe7ad38"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
