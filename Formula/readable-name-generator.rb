@@ -11,6 +11,7 @@ class ReadableNameGenerator < Formula
   end
 
   test do
+    system "#{bin}/readable-name-generator"
     assert_not_equal "", shell_output("#{bin}/readable-name-generator").strip
   end
 end
