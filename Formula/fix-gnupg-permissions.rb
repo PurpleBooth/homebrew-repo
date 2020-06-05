@@ -3,6 +3,7 @@ class FixGnupgPermissions < Formula
   homepage "https://github.com/PurpleBooth/fix-gnupg-permissions"
   url "https://github.com/PurpleBooth/fix-gnupg-permissions/archive/v0.16.0.tar.gz"
   sha256 "3f2a6622556a051644de0425a94591d9fdb21424546a776dbad699fd7340cc26"
+  revision 1
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
