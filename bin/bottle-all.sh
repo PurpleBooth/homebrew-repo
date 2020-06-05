@@ -12,14 +12,8 @@ done
 
 brew install --only-dependencies --verbose --build-bottle "${PACKAGES_FULL[@]}"
 brew install --verbose --build-bottle "${PACKAGES_FULL[@]}"
-
-for PACKAGE in "${PACKAGES[@]}"; do
-	brew bottle --verbose --json "$PACKAGE" --root-url="$BINTRAY_DL_URL"
-done
-
-for BOTTLE_JSON in ./*.bottle.json; do
-	brew bottle --merge --write "$BOTTLE_JSON"
-done
+brew bottle --verbose --json "${PACKAGES_FULL[@]}" --root-url="$BINTRAY_DL_URL"
+brew bottle --merge --write ./*.bottle.json
 
 for PACKAGE in "${PACKAGES[@]}"; do
 	curl \
