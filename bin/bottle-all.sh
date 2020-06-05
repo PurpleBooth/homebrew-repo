@@ -33,4 +33,5 @@ done
 brew test-bot \
 	--ci-upload \
 	--bintray-org="$BINTRAY_ORG" \
-	--root-url="$BINTRAY_DL_URL"
+	--root-url="$BINTRAY_DL_URL" \
+	--publish
