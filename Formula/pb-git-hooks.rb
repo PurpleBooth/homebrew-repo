@@ -8,7 +8,7 @@ class PbGitHooks < Formula
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any
-    sha256 "8155c4146b13e6166a77640ee610159d4c3c416c7b7bea65fa9e8937e4abe44f" => :catalina
+    sha256 "7c06de3cc6c5d4b4dd82260b3d929386ab408c4ff308bd8da965038adfa0f326" => :catalina
   end
 
   depends_on "rust" => :build
