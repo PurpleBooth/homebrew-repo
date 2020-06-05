@@ -26,6 +26,7 @@ for PACKAGE in "${PACKAGES[@]}"; do
 		"$BINTRAY_API_URL/packages/$BINTRAY_ORG/$PACKAGE" \
 		-u "$HOMEBREW_BINTRAY_USER:$HOMEBREW_BINTRAY_KEY" \
 		-X POST \
+		-H 'Content-Type: application/json' \
 		-d "{ \"name\": \"$PACKAGE\", \"vcs_url\": \"https://github.com/PurpleBooth/$PACKAGE.git\", \"github_repo\": \"PurpleBooth/$PACKAGE\", \"public_download_numbers\": true, \"public_stats\": true }" ||
 		echo "Package probably already exists..."
 done
