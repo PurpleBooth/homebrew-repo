@@ -13,7 +13,7 @@ jobs:
     - name: Get Cache Directory
       id: get-cache-dir
       run: |
-        echo "::set-output dir=date::$(brew --cache)"
+        echo "::set-output name=dir::$(brew --cache)"
     - uses: actions/cache@v2
       with:
         path: ${{ steps.get-cache-dir.outputs.dir }}
