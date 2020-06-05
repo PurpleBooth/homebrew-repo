@@ -2,10 +2,6 @@
 
 set -xeuo pipefail
 
-PACKAGES=()
-
 for I in Formula/*.rb; do
-	PACKAGES+=("purplebooth/repo/$(echo "$I" | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')")
+	brew bump-revision "purplebooth/repo/$(echo "$I" | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')"
 done
-
-brew bump-revision "${PACKAGES[@]}"
