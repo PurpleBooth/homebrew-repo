@@ -3,6 +3,7 @@ class GameOfLife < Formula
   homepage "https://github.com/PurpleBooth/game-of-life"
   url "https://github.com/PurpleBooth/game-of-life/archive/v1.18.0.tar.gz"
   sha256 "2e30fa3e193057990dd435be7094b6fa56bd6925ffe7be7695c0275da29a7a06"
+  revision 1
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
