@@ -12,7 +12,7 @@ jobs:
         id: get-cache
         run: |
           echo "::set-output name=dir::$(brew --cache)"
-          echo "::set-output name=hash::$(ls -R | sha1sum | head -c -2)"
+          echo "::set-output name=hash::$(ls -R | shasum | head -c -2)"
       - uses: actions/cache@v2
         with:
           path: ${{ steps.get-cache.outputs.dir }}
@@ -27,7 +27,7 @@ jobs:
         id: get-cache
         run: |
           echo "::set-output name=dir::$(brew --cache)"
-          echo "::set-output name=hash::$(ls -R | sha1sum | head -c -2)"
+          echo "::set-output name=hash::$(ls -R | shasum | head -c -2)"
       - uses: actions/cache@v2
         with:
           path: ${{ steps.get-cache.outputs.dir }}
@@ -48,7 +48,7 @@ jobs:
         id: get-cache
         run: |
           echo "::set-output name=dir::$(brew --cache)"
-          echo "::set-output name=hash::$(ls -R | sha1sum | head -c -2)"
+          echo "::set-output name=hash::$(ls -R | shasum | head -c -2)"
       - uses: actions/cache@v2
         with:
           path: ${{ steps.get-cache.outputs.dir }}
