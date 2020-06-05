@@ -24,10 +24,13 @@ jobs:
         
         for I in Formula/*.rb; do
           brew test-bot \
+            --bintray-org=purplebooth \
+            --root-url=https://dl.bintray.com/purplebooth/bottles-repo \
+            "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')"
+          brew test-bot \
             --ci-upload \
             --bintray-org=purplebooth \
             --root-url=https://dl.bintray.com/purplebooth/bottles-repo \
-            --tap purplebooth/repo \
             "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')"
         done
       env:
