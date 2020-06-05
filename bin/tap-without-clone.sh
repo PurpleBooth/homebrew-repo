@@ -3,4 +3,4 @@
 set -xeuo pipefail
 
 mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
-ln -s ./. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
+cp -r ./. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
