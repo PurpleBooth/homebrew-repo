@@ -60,5 +60,5 @@ jobs:
           BINTRAY_ORG: purplebooth
           HOMEBREW_BINTRAY_USER: purplebooth
           HOMEBREW_BINTRAY_KEY: '${{ secrets.HOMEBREW_BINTRAY_KEY }}'
-      - run: git push
+      - run: git pull --rebase && git push
 
