@@ -5,7 +5,7 @@ on:
   pull_request: ~
 
 jobs:
-  try-installing:
+  test:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -20,31 +20,18 @@ jobs:
     - run: brew cask install google-cloud-sdk
     - run: mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
     - run: cp -r ./. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
+
     - run: |
         set -euo pipefail
         
         for I in Formula/*.rb; do 
           brew install "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')"   
         done
-  test:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Get Cache Directory
-      id: get-cache-dir
-      run: |
-        echo "::set-output dir=date::$(brew --cache)"
-    - uses: actions/cache@v2
-      with:
-        path: ${{ steps.get-cache-dir.outputs.dir }}
-        key: ${{ runner.os }}-${{ hashFiles('**/*.rb') }}
-    - run: brew cask install google-cloud-sdk
-    - run: mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
-    - run: cp -r ./. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
+
     - run: |
         set -euo pipefail
-
-        for I in Formula/*.rb; do
-          brew  test "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')"
+        
+        for I in Formula/*.rb; do 
+          brew  test "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')"   
         done
 
