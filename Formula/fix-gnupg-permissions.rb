@@ -1,14 +1,13 @@
 class FixGnupgPermissions < Formula
   desc "Fixes permissions problems on the gnupg directory"
   homepage "https://github.com/PurpleBooth/fix-gnupg-permissions"
-  url "https://github.com/PurpleBooth/fix-gnupg-permissions/archive/v0.16.0.tar.gz"
-  sha256 "3f2a6622556a051644de0425a94591d9fdb21424546a776dbad699fd7340cc26"
-  revision 2
+  url "https://github.com/PurpleBooth/fix-gnupg-permissions/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "ee3fe2388435b0139e68815aaac05469c8a4431663079524266b55ca6b12f4f2"
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "ca242d3556d6c21b842d2e59abd0c217dd287b9356c2e9c18c6acee3e5ab4524" => :catalina
+    sha256 "36da06afd6dcc3b02363d66881f2f6ab07fb5990ee13b6452d8324f8cbc8d64a" => :catalina
   end
 
   depends_on "rust" => :build
