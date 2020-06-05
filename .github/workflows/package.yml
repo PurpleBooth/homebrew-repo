@@ -35,6 +35,9 @@ jobs:
       - run: ./bin/install-all.sh
       - run: ./bin/test-all.sh
   bottle:
+    needs:
+      - audit
+      - test
     runs-on: macos-latest
 
     steps:
