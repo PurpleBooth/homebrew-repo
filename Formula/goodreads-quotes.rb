@@ -8,7 +8,7 @@ class GoodreadsQuotes < Formula
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "ffee0384f237eb427ba867bc7ac87d716f6d01ed7204e54e5733ce47ca184855" => :catalina
+    sha256 "649af8b634c8e52b3340e5cdcb3acb09d34510f3ac6360b17cd939d0da68be4e" => :catalina
   end
 
   depends_on "rust" => :build
