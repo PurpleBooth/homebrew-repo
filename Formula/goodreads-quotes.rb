@@ -4,6 +4,12 @@ class GoodreadsQuotes < Formula
   url "https://github.com/PurpleBooth/goodreads-quotes/archive/v0.11.0.tar.gz"
   sha256 "4cc46a9241ebc8a3a7c4119278cb7d1dfa38caec11ac87d228a7ccce21486a1e"
 
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any_skip_relocation
+    sha256 "ffee0384f237eb427ba867bc7ac87d716f6d01ed7204e54e5733ce47ca184855" => :catalina
+  end
+
   depends_on "rust" => :build
 
   def install
