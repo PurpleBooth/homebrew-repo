@@ -1,5 +1,3 @@
-name: Audit Repo
-
 on:
   push: ~
   pull_request: ~
