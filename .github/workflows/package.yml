@@ -16,55 +16,24 @@ jobs:
         with:
           path: ${{ steps.get-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/*.rb') }}
-      - shell: bash
-        run: mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
-      - shell: bash
-        run: cp -r ./. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
-      - shell: bash
-        run: |
-          set -euo pipefail
-
-          for I in Formula/*.rb; do
-            brew  audit --strict --online --new-formula "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')"
-          done
+      - run: ./bin/tap-without-clone.sh
+      - run: ./bin/audit-all.sh
   test:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Get Cache Directory
-      id: get-cache-dir
-      run: |
-        echo "::set-output name=dir::$(brew --cache)"
-    - uses: actions/cache@v2
-      with:
-        path: ${{ steps.get-cache-dir.outputs.dir }}
-        key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/*.rb') }}
-    - shell: bash
-      run: brew cask install google-cloud-sdk
-    - shell: bash
-      run: mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
-    - shell: bash
-      run: cp -r ./. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
-
-    - shell: bash
-      run: |
-        set -euo pipefail
-
-        PACKAGES=()
-
-        for I in Formula/*.rb; do
-          PACKAGES+=( "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')" )
-        done
-
-        brew install "${PACKAGES[@]}"
-    - shell: bash
-      run: |
-
-        set -euo pipefail
-
-        for I in Formula/*.rb; do
-          brew  test "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')"
-        done
+      - uses: actions/checkout@v2
+      - name: Get Cache Directory
+        id: get-cache-dir
+        run: |
+          echo "::set-output name=dir::$(brew --cache)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.get-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/*.rb') }}
+      - run: ./bin/install-dependencies.sh
+      - run: ./bin/tap-without-clone.sh
+      - run: ./bin/install-all.sh
+      - run: ./bin/test-all.sh
   bottle:
     runs-on: macos-latest
 
@@ -79,44 +48,9 @@ jobs:
           path: ${{ steps.get-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/*.rb') }}
       - shell: bash
-        run: brew cask install google-cloud-sdk
-      - run: mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
-      - run: cp -r ./. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
-      - shell: bash
-        run: |
-          set -euo pipefail
-
-          PACKAGES=()
-          PACKAGES_FULL=()
-
-          for I in Formula/*.rb; do
-            PACKAGES+=( "$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')" )
-            PACKAGES_FULL+=( "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')" )
-          done
-
-          brew install --only-dependencies --verbose --build-bottle "${PACKAGES_FULL[@]}"
-          brew install --verbose --build-bottle "${PACKAGES_FULL[@]}"
-
-          for PACKAGE in "$PACKAGES[@]"; do
-            brew bottle --verbose --json "$PACKAGE" --root-url="$BINTRAY_DL_URL"
-          done
-
-          for BOTTLE_JSON in ./*.bottle.json; do
-            brew bottle --merge --write "$BOTTLE_JSON"
-          done
-
-          for PACKAGE in "$PACKAGES[@]"; do
-            curl \
-              "$BINTRAY_API_URL/packages/$BINTRAY_ORG/$PACKAGE" \
-              -u "$HOMEBREW_BINTRAY_USER:$HOMEBREW_BINTRAY_KEY" \
-              -X POST \
-              -d "{ \"name\": \"$PACKAGE\", \"vcs_url\": \"https://github.com/PurpleBooth/$PACKAGE.git\", \"github_repo\": \"PurpleBooth/$PACKAGE\", \"public_download_numbers\": false, \"public_stats\": true }" || echo "Package probably already exists..."
-          done
-
-          brew test-bot \
-            --ci-upload \
-            --bintray-org="$BINTRAY_ORG" \
-            --root-url="$BINTRAY_DL_URL"
+        run: ./bin/install-dependencies.sh
+      - run: ./bin/tap-without-clone.sh
+      - run: ./bin/bottle-all.sh
         env:
           BINTRAY_API_URL: https://api.bintray.com
           BINTRAY_DL_URL: https://dl.bintray.com/purplebooth/bottles-repo
