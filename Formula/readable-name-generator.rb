@@ -3,7 +3,7 @@ class ReadableNameGenerator < Formula
   homepage "https://github.com/PurpleBooth/readable-name-generator"
   url "https://github.com/PurpleBooth/readable-name-generator/archive/v2.11.0.tar.gz"
   sha256 "ae842abd30c9166a2e9f46388f6cc373117a648ab0f9548fa1b22859daa5e518"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
