@@ -12,6 +12,6 @@ class ReadableNameGenerator < Formula
 
   test do
     system "#{bin}/readable-name-generator"
-    system "make test"
+    system "make", "test"
   end
 end
