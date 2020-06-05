@@ -14,9 +14,9 @@ jobs:
       run: |
         echo "::set-output dir=date::$(brew --cache)"
     - uses: actions/cache@v2
-        with:
-          path: ${{ steps.get-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-${{ hashFiles('**/*.rb') }}
+      with:
+        path: ${{ steps.get-cache-dir.outputs.dir }}
+        key: ${{ runner.os }}-${{ hashFiles('**/*.rb') }}
     - run: brew cask install google-cloud-sdk
     - run: mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
     - run: cp -r ./. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
