@@ -21,7 +21,7 @@ class SetupAKeyringForSops < Formula
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "6f090ce14855a4b3d2c3ee2f5476682b4f0dfedd682277a0cc7ddc49b9a8883e" => :catalina
+    sha256 "7bf9c7293706c5b78cf6808cbc069ac166e974b7259b1f57dbbc4c6c28521ecb" => :catalina
   end
 
   depends_on "rust" => :build
