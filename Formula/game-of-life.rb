@@ -8,7 +8,7 @@ class GameOfLife < Formula
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "3022c302835b550a3c00366098ff4db305ca24138d509d8be61a7449c6899cab" => :catalina
+    sha256 "db3444f4f5973ea3992dfa529b48c0d85e1b24eef97ff628621f1e4c2fd74e54" => :catalina
   end
 
   depends_on "rust" => :build
