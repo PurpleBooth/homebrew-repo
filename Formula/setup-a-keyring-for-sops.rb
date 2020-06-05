@@ -16,7 +16,7 @@ class SetupAKeyringForSops < Formula
   homepage "https://github.com/PurpleBooth/setup-a-keyring-for-sops"
   url "https://github.com/PurpleBooth/setup-a-keyring-for-sops/archive/v0.14.0.tar.gz"
   sha256 "d36826e7fab5b5a7394f92e8d19717a61de9fc8867eff2064ffab165c47efe90"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
