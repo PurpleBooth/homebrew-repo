@@ -64,6 +64,8 @@ jobs:
           BINTRAY_ORG: purplebooth
           HOMEBREW_BINTRAY_USER: purplebooth
           HOMEBREW_BINTRAY_KEY: '${{ secrets.HOMEBREW_BINTRAY_KEY }}'
+      - run: ./bin/bump-all-revision.sh
+        if: ${{ failure() }}
       - run: ./bin/git-pull-git-push-tap.sh
         if: ${{ !cancelled() }}
 
