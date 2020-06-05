@@ -8,28 +8,30 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Get Cache Directory
-        id: get-cache-dir
+      - name: Get Cache Details
+        id: get-cache
         run: |
           echo "::set-output name=dir::$(brew --cache)"
+          echo "::set-output name=hash::$(ls -R | sha1sum | head -c -2)"
       - uses: actions/cache@v2
         with:
-          path: ${{ steps.get-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/*.rb') }}
+          path: ${{ steps.get-cache.outputs.dir }}
+          key: ${{ runner.os }}-${{ github.job }}-${{ steps.get-cache.outputs.hash }}
       - run: ./bin/tap-without-clone.sh
       - run: ./bin/audit-all.sh
   test:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Get Cache Directory
-        id: get-cache-dir
+      - name: Get Cache Details
+        id: get-cache
         run: |
           echo "::set-output name=dir::$(brew --cache)"
+          echo "::set-output name=hash::$(ls -R | sha1sum | head -c -2)"
       - uses: actions/cache@v2
         with:
-          path: ${{ steps.get-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-${{ github.job }}-${{ hashFiles('**/*.rb') }}
+          path: ${{ steps.get-cache.outputs.dir }}
+          key: ${{ runner.os }}-${{ github.job }}-${{ steps.get-cache.outputs.hash }}
       - run: ./bin/install-dependencies.sh
       - run: ./bin/tap-without-clone.sh
       - run: ./bin/install-all.sh
@@ -42,7 +44,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Get Cache Directory
+      - name: Get Cache Details
         id: get-cache
         run: |
           echo "::set-output name=dir::$(brew --cache)"
