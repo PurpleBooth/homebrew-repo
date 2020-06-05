@@ -3,6 +3,7 @@ class GitDuetWrapForSops < Formula
   homepage "https://github.com/PurpleBooth/git-duet-wrap-for-sops"
   url "https://github.com/PurpleBooth/git-duet-wrap-for-sops/archive/v0.16.0.tar.gz"
   sha256 "2a03c0a5d19d075748b0925f92d4145f504b0e840dcee90c2d8c18650feba87d"
+  revision 1
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
