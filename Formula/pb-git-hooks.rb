@@ -4,6 +4,12 @@ class PbGitHooks < Formula
   url "https://github.com/PurpleBooth/pb-git-hooks/archive/v2.82.0.tar.gz"
   sha256 "88a636a3a65a5a82da16f08fc0bb59d587c15123a9869a65ebdcf885d90db0f2"
 
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any
+    sha256 "8155c4146b13e6166a77640ee610159d4c3c416c7b7bea65fa9e8937e4abe44f" => :catalina
+  end
+
   depends_on "rust" => :build
 
   def install
