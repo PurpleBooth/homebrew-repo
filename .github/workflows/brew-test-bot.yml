@@ -3,7 +3,7 @@ on:
   pull_request: ~
 
 jobs:
-  audit:
+  bottle:
     runs-on: macos-latest
 
     steps:
@@ -23,7 +23,11 @@ jobs:
         set -euo pipefail
         
         for I in Formula/*.rb; do
-          brew test-bot --ci-upload --bintray-org=purplebooth --root-url=https://dl.bintray.com/purplebooth/bottles-repo
+          brew test-bot \
+            --ci-upload \
+            --bintray-org=purplebooth \
+            --root-url=https://dl.bintray.com/purplebooth/bottles-repo \
+            --tap purplebooth/repo
         done
       env:
         HOMEBREW_BINTRAY_USER: purplebooth
