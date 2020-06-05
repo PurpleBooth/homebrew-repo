@@ -8,7 +8,7 @@ class GitDuetWrapForSops < Formula
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "86d040c7ad1bc6fc03e685583ef34147834763a982af8fcdd1342b3b11ef04e0" => :catalina
+    sha256 "aa5ba4611a129570f29710cde3df6174176b676122b82a67529293088a772417" => :catalina
   end
 
   depends_on "rust" => :build
