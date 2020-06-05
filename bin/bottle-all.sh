@@ -5,15 +5,19 @@ set -xeuo pipefail
 PACKAGES=()
 PACKAGES_FULL=()
 
-for I in Formula/*.rb; do
-	PACKAGES+=("$(echo "$I" | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')")
-	PACKAGES_FULL+=("purplebooth/repo/$(echo "$I" | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')")
-done
-
-brew install --only-dependencies --verbose --build-bottle "${PACKAGES_FULL[@]}"
-brew install --verbose --build-bottle "${PACKAGES_FULL[@]}"
-brew bottle --verbose --json "${PACKAGES_FULL[@]}" --root-url="$BINTRAY_DL_URL"
-brew bottle --merge --write ./*.bottle.json
+function build_publish() {
+	brew test-bot \
+		--bintray-org="$BINTRAY_ORG" \
+		--root-url="$BINTRAY_DL_URL" \
+		--skip-setup \
+		"$1" &&
+		brew test-bot \
+			--ci-upload \
+			--bintray-org="$BINTRAY_ORG" \
+			--root-url="$BINTRAY_DL_URL" \
+			--publish \
+			"$1"
+}
 
 for PACKAGE in "${PACKAGES[@]}"; do
 	curl \
@@ -23,6 +27,15 @@ for PACKAGE in "${PACKAGES[@]}"; do
 		-H 'Content-Type: application/json' \
 		-d "{ \"name\": \"$PACKAGE\", \"vcs_url\": \"https://github.com/PurpleBooth/$PACKAGE.git\", \"github_repo\": \"PurpleBooth/$PACKAGE\", \"public_download_numbers\": true, \"public_stats\": true }" ||
 		echo "Package probably already exists..."
+done
+
+for I in Formula/*.rb; do
+	PACKAGES+=("$(echo "$I" | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')")
+	PACKAGES_FULL+=("purplebooth/repo/$(echo "$I" | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')")
+done
+
+for PACKAGE in "${PACKAGES_FULL[@]}"; do
+	build_publish "$PACKAGE" || (brew bump-revision && build_publish "$PACKAGE")
 done
 
 brew test-bot \
