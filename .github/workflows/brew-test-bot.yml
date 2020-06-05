@@ -23,16 +23,17 @@ jobs:
         set -euo pipefail
         
         for I in Formula/*.rb; do
+          echo -n .
           brew test-bot \
-            --bintray-org=purplebooth \
-            --root-url=https://dl.bintray.com/purplebooth/bottles-repo \
-            "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')"
-          brew test-bot \
-            --ci-upload \
             --bintray-org=purplebooth \
             --root-url=https://dl.bintray.com/purplebooth/bottles-repo \
             "purplebooth/repo/$(echo "$I"  | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')"
         done
+
+        brew test-bot \
+          --ci-upload \
+          --bintray-org=purplebooth \
+          --root-url=https://dl.bintray.com/purplebooth/bottles-repo
       env:
         HOMEBREW_BINTRAY_USER: purplebooth
         HOMEBREW_BINTRAY_KEY: '${{ secrets.HOMEBREW_BINTRAY_KEY }}'
