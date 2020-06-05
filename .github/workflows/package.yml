@@ -8,8 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Get Cache Details
-        id: get-cache
+      - id: get-cache
         run: |
           echo "::set-output name=dir::$(brew --cache)"
           ls -R > /tmp/hash
@@ -23,8 +22,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Get Cache Details
-        id: get-cache
+      - id: get-cache
         run: |
           echo "::set-output name=dir::$(brew --cache)"
           ls -R > /tmp/hash
@@ -44,8 +42,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Get Cache Details
-        id: get-cache
+      - id: get-cache
         run: |
           echo "::set-output name=dir::$(brew --cache)"
           ls -R > /tmp/hash
