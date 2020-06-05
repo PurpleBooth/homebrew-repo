@@ -5,6 +5,11 @@ set -xeuo pipefail
 PACKAGES=()
 PACKAGES_FULL=()
 
+for I in Formula/*.rb; do
+	PACKAGES+=("$(echo "$I" | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')")
+	PACKAGES_FULL+=("purplebooth/repo/$(echo "$I" | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')")
+done
+
 function build_publish() {
 	brew test-bot \
 		--bintray-org="$BINTRAY_ORG" \
@@ -27,11 +32,6 @@ for PACKAGE in "${PACKAGES[@]}"; do
 		-H 'Content-Type: application/json' \
 		-d "{ \"name\": \"$PACKAGE\", \"vcs_url\": \"https://github.com/PurpleBooth/$PACKAGE.git\", \"github_repo\": \"PurpleBooth/$PACKAGE\", \"public_download_numbers\": true, \"public_stats\": true }" ||
 		echo "Package probably already exists..."
-done
-
-for I in Formula/*.rb; do
-	PACKAGES+=("$(echo "$I" | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')")
-	PACKAGES_FULL+=("purplebooth/repo/$(echo "$I" | sed -e 's/^Formula\/*//' | sed -e 's/.rb$//')")
 done
 
 for PACKAGE in "${PACKAGES_FULL[@]}"; do
