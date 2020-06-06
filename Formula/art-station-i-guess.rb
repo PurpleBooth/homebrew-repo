@@ -1,13 +1,13 @@
 class ArtStationIGuess < Formula
   desc "Download art from Art Station for wallpaper"
   homepage "https://github.com/PurpleBooth/art-station-i-guess"
-  url "https://github.com/PurpleBooth/art-station-i-guess/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "3a0decf8e0f831a1e78ae33498b5b4641ca58f44814ca3015f4e349bf2b74eb8"
+  url "https://github.com/PurpleBooth/art-station-i-guess/archive/refs/tags/v0.23.0.tar.gz"
+  sha256 "7f2b065e06789c5b8c2ba7e346df3925eb3c965503811391b0a4c81e0cf5cfb5"
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "17ea8ce92d60ff8a4cb28f6a932e146a88010c5e0865cd14f6b0db052caf7bca" => :catalina
+    sha256 "ccd5fcd540c889281deb20cdcfb3c3aa93453f18523fef35eae99127e5b5eba9" => :catalina
   end
 
   depends_on "rust" => :build
