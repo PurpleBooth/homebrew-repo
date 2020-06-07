@@ -1,14 +1,8 @@
 class PbGitHooks < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/pb-git-hooks"
-  url "https://github.com/PurpleBooth/pb-git-hooks/archive/refs/tags/v2.110.2.tar.gz"
-  sha256 "2a52242eb885827baf90a9099a41e2ea4270d35a38617e70b8c2486343f74a08"
-  bottle do
-    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
-    cellar :any
-    sha256 "df3a3bfd0dbf2245d930f5ff0902cf362e67ceff281957698f04a2c02f47cc10" => :catalina
-  end
-
+  url "https://github.com/PurpleBooth/pb-git-hooks/archive/refs/tags/v2.111.0.tar.gz"
+  sha256 "88c817b54caed6c919750ce9f60ebbf274bc3b5dc4a0d50ac4a6714f9e09b7b7"
   depends_on "rust" => :build
   depends_on "openssl@1.1"
 
