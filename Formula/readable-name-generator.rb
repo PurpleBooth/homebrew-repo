@@ -1,13 +1,13 @@
 class ReadableNameGenerator < Formula
   desc "Generate a readable name using Dockers formula"
   homepage "https://github.com/PurpleBooth/readable-name-generator"
-  url "https://github.com/PurpleBooth/readable-name-generator/archive/refs/tags/v2.32.0.tar.gz"
-  sha256 "fe2dccde0dd925c4fc337ac13b26ce7837abe1ffbde0eebc036618015642491f"
+  url "https://github.com/PurpleBooth/readable-name-generator/archive/refs/tags/v2.33.0.tar.gz"
+  sha256 "75fcfc10452e554fc7fd17823c47ce208f2942aeee5635217d5c5b779af1dc2c"
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "f1a467017aec623334e10b128117c96e98c7f5f05345ebad730d8533d5dc6707" => :catalina
+    sha256 "2db25e2de167d2670b0ad3bea8619a4268656be050db97a1cda5459f198063e0" => :catalina
   end
 
   depends_on "go" => :build
