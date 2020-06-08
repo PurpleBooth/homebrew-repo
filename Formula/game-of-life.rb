@@ -1,13 +1,13 @@
 class GameOfLife < Formula
   desc "PurpleBooth's implementation of Conway's Game of life"
   homepage "https://github.com/PurpleBooth/game-of-life"
-  url "https://github.com/PurpleBooth/game-of-life/archive/refs/tags/v1.26.0.tar.gz"
-  sha256 "d565fe2c6c0c887ddba9b5c81ca0c8c6ae6078df7016fd5427013e9af09859a4"
+  url "https://github.com/PurpleBooth/game-of-life/archive/refs/tags/v1.27.0.tar.gz"
+  sha256 "6b26d01ce75b9b1df62691e0740f3687d147db32c949098b6a6801ede62ed557"
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "7e3a8419b49026038b1ce469bc0d4cb585fc59a4e36ec0c514178fb6972a3682" => :catalina
+    sha256 "7ec68bb6ffad0b10cd1ede8524237a0cb949676b6454a612e30aa51b5a62e33a" => :catalina
   end
 
   depends_on "rust" => :build
