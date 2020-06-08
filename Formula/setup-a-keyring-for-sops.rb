@@ -1,13 +1,13 @@
 class SetupAKeyringForSops < Formula
   desc "Use gcloud to setup everything needed for SOPS"
   homepage "https://github.com/PurpleBooth/setup-a-keyring-for-sops"
-  url "https://github.com/PurpleBooth/setup-a-keyring-for-sops/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "42bcb19b59a42afde57963e5812b7e7ae6357cf75af5e9ec78e762582571c6e2"
+  url "https://github.com/PurpleBooth/setup-a-keyring-for-sops/archive/refs/tags/v0.24.0.tar.gz"
+  sha256 "824c33924cd114a878a9e53a362580aef8f15764116f726e2a44dedf66502229"
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "97e497565a6c4af9684b342fe8de691c070ff93b8c2058ae265d828f06a57a87" => :catalina
+    sha256 "8761d5c8347693e12e25cd0a91e2444712fb0fd34e74683546bf8e9518f307f4" => :catalina
   end
 
   depends_on "rust" => :build
