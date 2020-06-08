@@ -1,13 +1,13 @@
 class GitDuetWrapForSops < Formula
   desc "Keeps your git authors file encrypted"
   homepage "https://github.com/PurpleBooth/git-duet-wrap-for-sops"
-  url "https://github.com/PurpleBooth/git-duet-wrap-for-sops/archive/refs/tags/v0.20.0.tar.gz"
-  sha256 "0dec503418a3df974c24b9d64971e9b9748caec00c773cb01b51883c672e36e4"
+  url "https://github.com/PurpleBooth/git-duet-wrap-for-sops/archive/refs/tags/v0.21.0.tar.gz"
+  sha256 "d4ec9c61cf4e51e44fc951dfc183deeaecc14b1469c16bbaa32d46584d10bf8f"
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "7e04a1233d2d1a0303a7953274deff1ac342b0078cd2788af6484cab06753e37" => :catalina
+    sha256 "764db78f4a66204b45a6f91104401ced23cc4c74385dd9148f16b60d6c337442" => :catalina
   end
 
   depends_on "rust" => :build
