@@ -1,13 +1,13 @@
 class FixCompaudit < Formula
   desc "Fixes problems reported by compuaudit"
   homepage "https://github.com/PurpleBooth/fix-compaudit"
-  url "https://github.com/PurpleBooth/fix-compaudit/archive/refs/tags/v0.20.0.tar.gz"
-  sha256 "529574c76bb22a9b3827e7098cac606f70de96cb5991a4ff9518d57dc10f36a6"
+  url "https://github.com/PurpleBooth/fix-compaudit/archive/refs/tags/v0.21.0.tar.gz"
+  sha256 "5bb998bf4959f02b524e6d840d9aac209ce212e87f2bcc29863fd81dd5946e99"
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "26dafb99c097e0f466e52ecea565585b4b68cd26ba3338e2aa079381d1e2d15e" => :catalina
+    sha256 "79f559e481c0d00ed29134b003f37c37860fa207067d001ad0085de7d11fa4ff" => :catalina
   end
 
   depends_on "rust" => :build
