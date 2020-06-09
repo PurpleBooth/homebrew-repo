@@ -1,13 +1,13 @@
 class GoodreadsQuotes < Formula
   desc "Get a random quote from random categories in goodreads"
   homepage "https://github.com/PurpleBooth/goodreads-quotes"
-  url "https://github.com/PurpleBooth/goodreads-quotes/archive/refs/tags/v0.19.0.tar.gz"
-  sha256 "8b88c252508b70401a8a4b39d4444f7269be78ab3e855c633b914a90606bb1d6"
+  url "https://github.com/PurpleBooth/goodreads-quotes/archive/refs/tags/v0.19.1.tar.gz"
+  sha256 "67d3fbc1f48cf3fe22d26dbc66a8ae33894a811349b6351e9c337867cfd16140"
 
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "15f3e1acb14cf3e357bb588661788cf37314c67ce7f082ea5d4f3f3255b029ac" => :catalina
+    sha256 "5606991c3d246a28227637b9ea7897ec96bd9f77cfbe9cfaf6087ed15f3ea923" => :catalina
   end
 
   depends_on "rust" => :build
