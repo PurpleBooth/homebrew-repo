@@ -31,7 +31,7 @@ jobs:
         env:
           GITHUB_TOKEN: "${{ secrets.COMMITTER_TOKEN }}"
           MERGE_METHOD: rebase 
-          MERGE_LABELS: release 
+          MERGE_LABELS: releases
           MERGE_RETRY_SLEEP: "100000"
       - name: automerge
         uses: "pascalgn/automerge-action@v0.8.4"
