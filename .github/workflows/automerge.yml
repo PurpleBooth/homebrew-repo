@@ -41,7 +41,7 @@ jobs:
           MERGE_LABELS: bottles
           MERGE_RETRY_SLEEP: "100000"
           UPDATE_METHOD: rebase 
-          UPDATE_LABELS: added-bottle 
+          UPDATE_LABELS: bottles
           UPDATE_RETRY_SLEEP: "100000"  
           UPDATE_RETRIES: 6
   automerge-label-rebase:
