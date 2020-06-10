@@ -1,8 +1,8 @@
 class GitDuetWrapForSops < Formula
   desc "Keeps your git authors file encrypted"
   homepage "https://github.com/PurpleBooth/git-duet-wrap-for-sops"
-  url "https://github.com/PurpleBooth/git-duet-wrap-for-sops/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "d68aebe5dc908d973ea22616a5b43ac6dbf7094bafe8203029922b46f51a3120"
+  url "https://github.com/PurpleBooth/git-duet-wrap-for-sops/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "40aca26990014d91bf4f4a74ec6519dbe762b00a35110a7668d97c5a30aafe35"
 
   depends_on "rust" => :build
 
