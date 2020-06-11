@@ -23,6 +23,10 @@ on:
       - completed
   status: {}
 jobs:
+  nop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo do nothing
   automerge-bottles:
     runs-on: ubuntu-latest
     steps:
