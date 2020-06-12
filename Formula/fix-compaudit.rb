@@ -10,6 +10,12 @@ class FixCompaudit < Formula
     sha256 "d04d9dcbf3c7ea20cb4ae9d90b0cd15d2abb848545052814b3e427117d6c4b57" => :catalina
   end
 
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any_skip_relocation
+    sha256 "446cd10e691ec9edf9542ffc0fc1183f5028e44e042b12809b6660acc8de88c3" => :catalina
+  end
+
   depends_on "rust" => :build
   depends_on "zsh"
 
