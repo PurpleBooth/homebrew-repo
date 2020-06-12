@@ -4,6 +4,12 @@ class SetupAKeyringForSops < Formula
   url "https://github.com/PurpleBooth/setup-a-keyring-for-sops/archive/refs/tags/v0.42.0.tar.gz"
   sha256 "470dd5f27b36d3e2b740613d670b69744e1af49ecf0935ddf160816187bd614d"
 
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any_skip_relocation
+    sha256 "3ab8fc64e6c3c0356440d270ca1e25a1ce6a60fa1d82ce69e95e7185d23d0c88" => :catalina
+  end
+
   depends_on "rust" => :build
 
   def install
