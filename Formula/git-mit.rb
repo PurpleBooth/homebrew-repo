@@ -1,14 +1,8 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.3.0.tar.gz"
-  sha256 "4eb91c9963322491f9d9bc1bc259c2f8faacd0d3aee6dd0e203c649b826cfcea"
-  bottle do
-    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
-    cellar :any
-    sha256 "9abbb4645100f4ad4abb86258aaa8a2ed2566540531ed6161243a71b649848df" => :catalina
-  end
-
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.4.0.tar.gz"
+  sha256 "3e2e343bef563992e1d4844fb45fbaa6db74dca726beab4f78396cc813659f41"
   depends_on "rust" => :build
   depends_on "openssl@1.1"
 
@@ -18,6 +12,24 @@ class GitMit < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./mit-prepare-commit-msg/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit-config/"
+
+    output = Utils.popen_read("#{bin}/git-mit --completion bash ig")
+    (bash_completion/"git-mit").write output
+
+    output = Utils.popen_read("#{bin}/git-mit --completion zsh ig")
+    (zsh_completion/"_git-mit").write output
+
+    output = Utils.popen_read("#{bin}/git-mit --completion fish ig")
+    (fish_completion/"git-mit.fish").write output
+
+    output = Utils.popen_read("#{bin}/git-mit-config --completion bash mit example")
+    (bash_completion/"git-mit-config").write output
+
+    output = Utils.popen_read("#{bin}/git-mit-config --completion zsh mit example")
+    (zsh_completion/"_git-mit-config").write output
+
+    output = Utils.popen_read("#{bin}/git-mit-config --completion fish mit example")
+    (fish_completion/"git-mit-config.fish").write output
   end
 
   test do
