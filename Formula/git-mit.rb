@@ -1,14 +1,8 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.4.0.tar.gz"
-  sha256 "3e2e343bef563992e1d4844fb45fbaa6db74dca726beab4f78396cc813659f41"
-  bottle do
-    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
-    cellar :any
-    sha256 "30b47661ecd79d14e94f134ad568d2d855f31dd2d7a9eb126c0803e00479f1ee" => :catalina
-  end
-
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "f9433bd7f2ad9c07fd8c2eb162ded3094765f84b77e5bf0f425d12bfc693a6f8"
   depends_on "rust" => :build
   depends_on "openssl@1.1"
 
@@ -19,22 +13,22 @@ class GitMit < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit-config/"
 
-    output = Utils.popen_read("#{bin}/git-mit --completion bash ig")
+    output = Utils.popen_read("#{bin}/git-mit --completion bash")
     (bash_completion/"git-mit").write output
 
-    output = Utils.popen_read("#{bin}/git-mit --completion zsh ig")
+    output = Utils.popen_read("#{bin}/git-mit --completion zsh")
     (zsh_completion/"_git-mit").write output
 
-    output = Utils.popen_read("#{bin}/git-mit --completion fish ig")
+    output = Utils.popen_read("#{bin}/git-mit --completion fish")
     (fish_completion/"git-mit.fish").write output
 
-    output = Utils.popen_read("#{bin}/git-mit-config --completion bash mit example")
+    output = Utils.popen_read("#{bin}/git-mit-config completion bash")
     (bash_completion/"git-mit-config").write output
 
-    output = Utils.popen_read("#{bin}/git-mit-config --completion zsh mit example")
+    output = Utils.popen_read("#{bin}/git-mit-config completion zsh")
     (zsh_completion/"_git-mit-config").write output
 
-    output = Utils.popen_read("#{bin}/git-mit-config --completion fish mit example")
+    output = Utils.popen_read("#{bin}/git-mit-config completion fish")
     (fish_completion/"git-mit-config.fish").write output
   end
 
