@@ -1,8 +1,8 @@
 class GoodreadsQuotes < Formula
   desc "Get a random quote from random categories in goodreads"
   homepage "https://github.com/PurpleBooth/goodreads-quotes"
-  url "https://github.com/PurpleBooth/goodreads-quotes/archive/refs/tags/v0.45.0.tar.gz"
-  sha256 "12349f7e9f322e84d2ac4c18f28bec831b41697094d4886c28c878878446b5d2"
+  url "https://github.com/PurpleBooth/goodreads-quotes/archive/refs/tags/v0.46.0.tar.gz"
+  sha256 "0f41e1e2d0bd559d312a6d0ca9711159e267c935d112ba246b5324fb89269080"
 
   depends_on "rust" => :build
 
