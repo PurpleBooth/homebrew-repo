@@ -1,8 +1,8 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.12.0.tar.gz"
-  sha256 "9306c88847c95837c9cd3bec0108e433c5be7c9c8145e7ccdec4d6bfbe1a8b43"
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.13.0.tar.gz"
+  sha256 "390bdb6a48af99e0b17052d63798c2a536c2b4d2fe8e7879ae00807635fc433e"
   depends_on "rust" => :build
   depends_on "openssl@1.1"
 
@@ -13,15 +13,15 @@ class GitMit < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit-config/"
 
-    Pathname.glob('**/bash_completion/*').each do |file|
+    Pathname.glob("**/bash_completion/*").each do |file|
       bash_completion.install file
     end
 
-    Pathname.glob('**/fish_completion/*').each do |file|
+    Pathname.glob("**/fish_completion/*").each do |file|
       fish_completion.install file
     end
 
-    Pathname.glob('**/zsh_completion/*').each do |file|
+    Pathname.glob("**/zsh_completion/*").each do |file|
       zsh_completion.install file
     end
   end
