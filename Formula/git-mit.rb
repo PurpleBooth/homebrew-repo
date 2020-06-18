@@ -1,14 +1,8 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.10.0.tar.gz"
-  sha256 "2778fd3abefa976cd55e0c7d35af71d5bbb0c7f802441bd528f36aefe60d8cc2"
-  bottle do
-    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
-    cellar :any
-    sha256 "cb5de26807554d0a632e18d649aeacf7d833cb320ea4f51143b2033e5dcc3a57" => :catalina
-  end
-
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.11.0.tar.gz"
+  sha256 "07493eeb694befc6a90b3e71d82eb96e81ddfbb236f7b40f1a8c9b28d36b6510"
   depends_on "rust" => :build
   depends_on "openssl@1.1"
 
