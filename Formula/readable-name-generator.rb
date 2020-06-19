@@ -4,6 +4,12 @@ class ReadableNameGenerator < Formula
   url "https://github.com/PurpleBooth/readable-name-generator/archive/refs/tags/v2.49.0.tar.gz"
   sha256 "d57158cbcfd08d696bc403a68edc9532710ed6a93509ae94ae005bc247f15302"
 
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any_skip_relocation
+    sha256 "e99073a7b0e3b63d0a8e426c68c977a3b28cf3a5632933943d4d75f4f38e299a" => :catalina
+  end
+
   depends_on "go" => :build
 
   def install
