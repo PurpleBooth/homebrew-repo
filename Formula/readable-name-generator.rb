@@ -10,6 +10,12 @@ class ReadableNameGenerator < Formula
     sha256 "e99073a7b0e3b63d0a8e426c68c977a3b28cf3a5632933943d4d75f4f38e299a" => :catalina
   end
 
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any_skip_relocation
+    sha256 "58c403820db589c1f0e1f41e2e1d80094d432e380cc0c96851868e25261a1066" => :catalina
+  end
+
   depends_on "go" => :build
 
   def install
