@@ -1,10 +1,10 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.18.0.tar.gz"
-  sha256 "a0738f3e007f6e858eb0f84986d2f444891e13ae15d3284b4b2b73fc05c5de32"
-  depends_on "rust" => :build
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.19.0.tar.gz"
+  sha256 "6e6b9fbdd7685eb1691747ed5fbb45392fd7191656e6c6e384135480d596d4ee"
   depends_on "pandoc" => :build
+  depends_on "rust" => :build
   depends_on "openssl@1.1"
 
   def install
@@ -28,7 +28,7 @@ class GitMit < Formula
 
     Pathname.glob("**/*.man.md").each do |file|
       base = file.basename(".man.md")
-      system "pandoc", "-s", "-f", "gfm", "-t", "man", file, "-o", "#{base}.1"
+      system "pandoc", "-s", "-f", "markdown", "-t", "man", file, "-o", "#{base}.1"
       man1.install "#{base}.1"
     end
   end
