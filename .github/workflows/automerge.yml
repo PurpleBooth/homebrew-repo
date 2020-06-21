@@ -37,7 +37,6 @@ jobs:
           MERGE_METHOD: rebase 
           MERGE_LABELS: releases
           MERGE_RETRY_SLEEP: "100000"
-          UPDATE_METHOD: rebase 
           UPDATE_LABELS: releases
           UPDATE_RETRIES: 6
       - name: automerge
@@ -46,8 +45,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.COMMITTER_TOKEN }}"
           MERGE_METHOD: rebase 
           MERGE_LABELS: bottles
-          MERGE_RETRY_SLEEP: "100000"
-          UPDATE_METHOD: rebase 
+          MERGE_RETRY_SLEEP: "100000" 
           UPDATE_LABELS: bottles
           UPDATE_RETRIES: 6
   automerge-label-rebase:
