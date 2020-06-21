@@ -1,8 +1,8 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.29.0.tar.gz"
-  sha256 "8d83d721ef22fa0dc056ca02ed06014957db0ed23c581f5d48d386ae38d0dd0f"
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.32.0.tar.gz"
+  sha256 "dae0a4fcb3988d342463b2527a66c8b45d0bd5ac0f2225f893b456f9435a835f"
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
@@ -13,6 +13,7 @@ class GitMit < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./mit-prepare-commit-msg/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit-config/"
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-relates-to/"
 
     Pathname.glob("**/bash_completion/*").each do |file|
       bash_completion.install file
@@ -28,7 +29,7 @@ class GitMit < Formula
 
     Pathname.glob("**/*.man.md").each do |file|
       base = file.basename(".man.md")
-      system "pandoc", "-s", "-f", "markdown", "-t", "man", file, "-o", "#{base}.1"
+      system "pandoc", "--wrap=auto", "-s", "-f", "markdown", "-t", "man", file, "-o", "#{base}.1"
       man1.install "#{base}.1"
     end
   end
@@ -44,5 +45,7 @@ class GitMit < Formula
     system "#{bin}/git-mit", "-V"
     system "#{bin}/git-mit-config", "-h"
     system "#{bin}/git-mit-config", "-V"
+    system "#{bin}/git-relates-to", "-h"
+    system "#{bin}/git-relates-to", "-V"
   end
 end
