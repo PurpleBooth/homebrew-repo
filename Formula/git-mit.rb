@@ -1,8 +1,8 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.31.0.tar.gz"
-  sha256 "4aea99fbddd4c2eb05b8afa9ee13eeb4bb3be3a63df4a6fa1d1a9e9a8445a9a4"
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.32.0.tar.gz"
+  sha256 "dae0a4fcb3988d342463b2527a66c8b45d0bd5ac0f2225f893b456f9435a835f"
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
@@ -13,6 +13,7 @@ class GitMit < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./mit-prepare-commit-msg/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit-config/"
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-relates-to/"
 
     Pathname.glob("**/bash_completion/*").each do |file|
       bash_completion.install file
@@ -44,5 +45,7 @@ class GitMit < Formula
     system "#{bin}/git-mit", "-V"
     system "#{bin}/git-mit-config", "-h"
     system "#{bin}/git-mit-config", "-V"
+    system "#{bin}/git-relates-to", "-h"
+    system "#{bin}/git-relates-to", "-V"
   end
 end
