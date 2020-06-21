@@ -1,8 +1,14 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.29.0.tar.gz"
-  sha256 "8d83d721ef22fa0dc056ca02ed06014957db0ed23c581f5d48d386ae38d0dd0f"
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.30.0.tar.gz"
+  sha256 "dacd942ee9af01bff65cd8133d18550703be37a37f98fb20c2de2a09c16bdb3b"
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any
+    sha256 "5d5dca36dbec575007afb171e4041e423c25d297a261c6a3cbb0a60e26e1f3e7" => :catalina
+  end
+
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
@@ -28,7 +34,7 @@ class GitMit < Formula
 
     Pathname.glob("**/*.man.md").each do |file|
       base = file.basename(".man.md")
-      system "pandoc", "-s", "-f", "markdown", "-t", "man", file, "-o", "#{base}.1"
+      system "pandoc", "--wrap=auto", "-s", "-f", "markdown", "-t", "man", file, "-o", "#{base}.1"
       man1.install "#{base}.1"
     end
   end
