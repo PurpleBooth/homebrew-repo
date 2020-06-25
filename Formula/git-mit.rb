@@ -1,10 +1,11 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.49.0.tar.gz"
-  sha256 "be480d93e261ed2fb191c5f910a27875d6e7fa380a581e790be07e573f641bd3"
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.50.0.tar.gz"
+  sha256 "3d0824e0e69e136c78e58336f35967ba054378f25113d2d3044b818ff0b1e6b2"
   depends_on "pandoc" => :build
   depends_on "rust" => :build
+  depends_on "git"
   depends_on "openssl@1.1"
 
   def install
@@ -36,19 +37,14 @@ class GitMit < Formula
   end
 
   test do
-    system "#{bin}/mit-commit-msg", "-h"
-    system "#{bin}/mit-commit-msg", "-V"
-    system "#{bin}/mit-pre-commit", "-h"
-    system "#{bin}/mit-pre-commit", "-V"
-    system "#{bin}/mit-prepare-commit-msg", "-h"
-    system "#{bin}/mit-prepare-commit-msg", "-V"
-    system "#{bin}/git-mit", "-h"
-    system "#{bin}/git-mit", "-V"
-    system "#{bin}/git-mit-config", "-h"
-    system "#{bin}/git-mit-config", "-V"
-    system "#{bin}/git-mit-relates-to", "-h"
-    system "#{bin}/git-mit-relates-to", "-V"
-    system "#{bin}/git-mit-install", "-h"
-    system "#{bin}/git-mit-install", "-V"
+    system "git", "init", testpath
+    system "#{bin}/git-mit-install"
+    output = Utils.popen_read("#{bin}/git-mit-config mit example")
+    (testpath/"git-mit.toml").write output
+    system "#{bin}/git-mit", "-c", "git-mit.toml", "se"
+    system "git-mit-relates-to", "#12356"
+    system "git", "add", testpath
+    system "git", "commit", "-m", "Exammple Commit"
+    system "#{bin}/git-mit-config", "lint", "available"
   end
 end
