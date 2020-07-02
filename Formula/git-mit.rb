@@ -1,6 +1,7 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
+
   url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.71.0.tar.gz"
   sha256 "8e8da5d00da56527f7a3fc23ad8876c9f9bbd6bad564dfa380133872dcd0c55c"
   bottle do
