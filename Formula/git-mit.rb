@@ -1,12 +1,12 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.79.0.tar.gz"
-  sha256 "e1449cba7a69e51ecd70748b9cfac930e2688ce2b67ec6eb278e846e46f68a84"
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.80.0.tar.gz"
+  sha256 "c94a65edc92ee714e5bdb2e46d402d4c59febafaaf038d6c958bdfcbc8e6218f"
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any
-    sha256 "a001ca98654a2c97ecde28ebe00755eca7800a816777bf4feb96edde8cd78160" => :catalina
+    sha256 "bfedec86184a9ff794d87a997c404e984ba1c10f579f6ade47a8b794ef31fdad" => :catalina
   end
 
   depends_on "pandoc" => :build
@@ -24,7 +24,8 @@ class GitMit < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./git-mit-install/"
 
     Pathname.glob("**/bash_completion/*").each do |file|
-      bash_completion.install file
+      base = file.basename(".bash")
+      bash_completion.install file => base
     end
 
     Pathname.glob("**/fish_completion/*").each do |file|
