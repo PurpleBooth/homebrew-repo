@@ -4,6 +4,12 @@ class FixGnupgPermissions < Formula
   url "https://github.com/PurpleBooth/fix-gnupg-permissions/archive/refs/tags/v0.47.0.tar.gz"
   sha256 "e84afee7096945254b4ca3cb7d1ce3fb81d869a82e12d9c6e3821af49106df09"
 
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any_skip_relocation
+    sha256 "b120f2080cf969702f7f0260a687fc7c4f172e50ba9e26a41e6be4930798b6ff" => :catalina
+  end
+
   depends_on "rust" => :build
 
   def install
