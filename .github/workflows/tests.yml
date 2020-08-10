@@ -1,7 +1,7 @@
 name: brew test-bot
 on:
   push:
-    branches: master
+    branches: main
   pull_request: []
 jobs:
   test-bot:
@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
+        id: set-up-homebrew
 
       - name: Cache Homebrew Bundler RubyGems
         id: cache
