@@ -16,7 +16,7 @@ class GitMit < Formula
   on_linux do
     depends_on "libxcb"
   end
-  
+
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./mit-commit-msg/"
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./mit-pre-commit/"
