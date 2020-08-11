@@ -13,6 +13,11 @@ class GitMit < Formula
   depends_on "rust" => :build
   depends_on "git"
   depends_on "openssl@1.1"
+  on_linux do
+    depends_on "libxcb"
+  end
+  
+  on_linux
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./mit-commit-msg/"
