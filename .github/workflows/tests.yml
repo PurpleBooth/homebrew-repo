@@ -2,7 +2,7 @@ name: brew test-bot
 on:
   push:
     branches: main
-  pull_request: []
+  pull_request: ~
 jobs:
   test-bot:
     runs-on: ${{ matrix.os }}
