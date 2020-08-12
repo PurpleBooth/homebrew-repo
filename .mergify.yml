@@ -7,7 +7,7 @@ pull_request_rules:
       - label=automerge-squash
     actions:
       merge:
-        strict: smart+fasttrack
+        strict: smart
         method: squash
   - name: automatic rebase for main when tests pass
     conditions:
@@ -17,7 +17,7 @@ pull_request_rules:
       - label=automerge-rebase
     actions:
       merge:
-        strict: smart+fasttrack
+        strict: smart
         method: rebase
   - name: automatic rebase for releases
     conditions:
@@ -26,7 +26,7 @@ pull_request_rules:
       - label=releases
     actions:
       merge:
-        strict: smart+fasttrack
+        strict: smart
         method: merge
   - name: automatic rebase for bottles
     conditions:
@@ -36,5 +36,5 @@ pull_request_rules:
       - label=bottles
     actions:
       merge:
-        strict: smart+fasttrack
+        strict: smart
         method: merge
