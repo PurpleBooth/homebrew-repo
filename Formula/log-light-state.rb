@@ -1,14 +1,8 @@
 class LogLightState < Formula
   desc "Log the current state of hue lights every 60 seconds"
   homepage "https://github.com/PurpleBooth/log-light-state"
-  url "https://github.com/PurpleBooth/log-light-state/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "cf5dc58f21cecf9f687315ab7124445f54ecb745d3a35d7b5aae9c5508cd0f20"
-  bottle do
-    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
-    cellar :any_skip_relocation
-    sha256 "e077d8a715dbda923008824ac22d2e9200eeb9dd219c51f1c6bec8169aec2dd1" => :catalina
-  end
-
+  url "https://github.com/PurpleBooth/log-light-state/archive/refs/tags/v1.0.13.tar.gz"
+  sha256 "cc9c95887f724946c84766051b3cdee4f93433107060ef12b3d3d8bf0574088d"
   depends_on "rust" => :build
 
   def install
