@@ -11,6 +11,9 @@ class ArtStationIGuess < Formula
   end
 
   depends_on "rust" => :build
+  on_linux do
+    depends_on "openssl@1.1"
+  end
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
