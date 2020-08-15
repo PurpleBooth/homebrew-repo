@@ -53,8 +53,6 @@ jobs:
         run: |
           CONFIGURED_GIT_CONFIG="$PWD/.git/config"
           cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
-          brew tap "purplebooth/repo"
-          cp "$CONFIGURED_GIT_CONFIG" ".git/config"
           for PACKAGE in $( "grep -L "bottle" Formula/*.rb  | rev | cut -c 4- | rev | cut -c 9-" ) ; do
             brew test-bot \
               --ci-upload \
