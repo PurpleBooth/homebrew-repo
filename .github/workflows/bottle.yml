@@ -25,6 +25,22 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
 
+      - uses: actions/checkout@v2.3.2
+        name: Checkout this repository
+        with:
+          token: ${{ secrets.COMMITTER_TOKEN }}
+
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v2
+        with:
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          git_tag_gpgsign: true
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.SIGNING_KEY_PRIV }}
+          PASSPHRASE: ${{ secrets.SIGNING_KEY_PASS }}
+
       - name: Build missing bottles
         env:
           REPOSITORY_NAME: ${{ steps.get_repository_name.outputs.REPOSITORY_NAME }}
@@ -35,15 +51,18 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
         shell: bash
         run: |
+          CONFIGURED_GIT_CONFIG="$PWD/.git/config"
           cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
+          brew tap "purplebooth/repo"
+          cp "$CONFIGURED_GIT_CONFIG" ".git/config"
           for PACKAGE in $( "grep -L "bottle" Formula/*.rb  | rev | cut -c 4- | rev | cut -c 9-" ) ; do
             brew test-bot \
               --ci-upload \
               --bintray-org="$BINTRAY_ORG" \
               --root-url="$BINTRAY_DL_URL" \
               --tap=purplebooth/repo \
-              --git-name="$GITHUB_ACTOR" \
-              --git-email="$GITHUB_ACTOR@users.noreply.github.com" \
+              --git-name="$(git config --get user.name)" \
+              --git-email="$(git config --get user.email)" \
               --publish \
               "purplebooth/repo/$PACKAGE"
 
