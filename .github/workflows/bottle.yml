@@ -77,7 +77,7 @@ jobs:
 
             pushd "$HOMEBREW_REPO_PATH"
             git switch -c "$PACKAGE-$(git rev-parse --short HEAD)"
-            brew install gh
+            brew install gh gpg
             gh pr create -l bottles --fill
             git switch main
             git reset --hard origin/main
