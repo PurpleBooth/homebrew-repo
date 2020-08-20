@@ -52,6 +52,7 @@ jobs:
         shell: bash
         run: |
           CONFIGURED_GIT_CONFIG="$PWD/.git/config"
+          brew tap purplebooth/repo
           cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
           for PACKAGE in $( "grep -L "bottle" Formula/*.rb  | rev | cut -c 4- | rev | cut -c 9-" ) ; do
             brew test-bot \
