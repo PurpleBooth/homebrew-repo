@@ -58,7 +58,8 @@ jobs:
           
           for PACKAGE in $( grep -L "bottle" "$HOMEBREW_PREFIX"*.rb  | rev | cut -c 4- | rev | cut -c $(( ${#HOMEBREW_PREFIX} + 1 ))- ) ; do
             brew install --build-bottle "purplebooth/repo/$PACKAGE"
-            brew bottle --write "purplebooth/repo/$PACKAGE"
+            brew bottle --json "purplebooth/repo/$PACKAGE"
+            brew bottle --merge --write "$PACKAGE--"*".bottle.json"
             brew test-bot \
               --ci-upload \
               --bintray-org="$BINTRAY_ORG" \
