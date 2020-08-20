@@ -1,4 +1,4 @@
-name: brew test-bot
+name: Add bottles
 on:
   push:
     branches: main
