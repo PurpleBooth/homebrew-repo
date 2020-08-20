@@ -54,7 +54,7 @@ jobs:
           set -euo pipefail
           brew tap purplebooth/repo
           HOMEBREW_REPO_PATH="$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
-          for PACKAGE in $( grep -L "bottle" "$HOMEBREW_REPO_PATH/Formula/*.rb  | rev | cut -c 4- | rev | cut -c 9- ) ; do
+          for PACKAGE in $( grep -L "bottle" "$HOMEBREW_REPO_PATH/Formula/"*.rb  | rev | cut -c 4- | rev | cut -c 9- ) ; do
             brew test-bot \
               --ci-upload \
               --bintray-org="$BINTRAY_ORG" \
