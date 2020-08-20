@@ -73,10 +73,8 @@ jobs:
               --publish \
               "purplebooth/repo/$PACKAGE"
 
-            pushd "$HOMEBREW_REPO_PATH"
             git switch -c "$PACKAGE-$(git rev-parse --short HEAD)"
             gh pr create -l bottles --fill
             git switch main
             git reset --hard origin/main
-            popd
           done
