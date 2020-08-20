@@ -55,7 +55,7 @@ jobs:
 
           HOMEBREW_REPO_PATH="$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
           HOMEBREW_PREFIX="$HOMEBREW_REPO_PATH/Formula/"
-          git tap purplebooth/repo
+          brew tap purplebooth/repo
           rm -rf "$HOMEBREW_REPO_PATH/.git"
           cp -r .git "$HOMEBREW_REPO_PATH/.git"
 
