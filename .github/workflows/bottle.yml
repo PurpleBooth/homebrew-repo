@@ -62,7 +62,7 @@ jobs:
               --git-name="$(git config --get user.name)" \
               --git-email="$(git config --get user.email)" \
               --publish \
-              "purplebooth/repo/$PACKAGE"
+              "purplebooth/repo/$PACKAGE" || true
           done
 
       - name: Add back dependencies that test-bot removes
@@ -99,7 +99,7 @@ jobs:
       - name: Sign commits
         env:
           OS: ${{ matrix.os }}
-        run: git rebase --exec 'git commit --amend --reset-author --no-edit --gpg-sign' --interactive origin/main
+        run: git rebase --exec 'git commit --amend --reset-author --no-edit --gpg-sign' origin/main
 
       - name: Create bottle PR
         env:
