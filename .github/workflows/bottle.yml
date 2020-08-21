@@ -104,9 +104,9 @@ jobs:
         shell: bash
         run: |
           mkdir -p $HOME/.config/gh/
-          cat > $HOME/.config/gh/config.yml <<EOF
+          cat > $HOME/.config/gh/hosts.yml <<EOF
           github.com:
-           - user: "$GH_USERNAME"
+             user: "$GH_USERNAME"
              oauth_token: "$GITHUB_TOKEN"
           EOF
         env:
