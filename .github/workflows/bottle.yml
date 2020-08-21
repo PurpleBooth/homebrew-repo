@@ -100,7 +100,17 @@ jobs:
         env:
           OS: ${{ matrix.os }}
         run: git rebase --exec 'git commit --amend --reset-author --no-edit --gpg-sign' origin/main
-
+      - name: Create GH Config
+        shell: bash
+        run: |
+          mkdir -p $HOME/.config/gh/
+          cat > $HOME/.config/gh/config.yml <<EOF
+          github.com:
+           - user: "$GH_USERNAME"
+             oauth_token: "$GITHUB_TOKEN"
+          EOF
+        env:
+          GH_USERNAME: ${{ github.repository_owner }}
       - name: Create bottle PR
         env:
           OS: ${{ matrix.os }}
