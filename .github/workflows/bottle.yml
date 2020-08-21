@@ -111,6 +111,7 @@ jobs:
           EOF
         env:
           GH_USERNAME: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
       - name: Create bottle PR
         env:
           OS: ${{ matrix.os }}
