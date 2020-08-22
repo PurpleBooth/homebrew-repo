@@ -13,8 +13,7 @@ pull_request_rules:
       - base=main
       - label=automerge-squash
     actions:
-      update:
-        strict: smart
+      update: {}
   - name: Trigger merge from automerge action
     conditions:
       - status-success=test-bot (ubuntu-latest)
@@ -29,8 +28,7 @@ pull_request_rules:
       - base=main
       - label=automerge-rebase
     actions:
-      update:
-        strict: smart
+      update: {}
   - name: Trigger merge from automerge action
     conditions:
       - status-success=test-bot
@@ -44,8 +42,7 @@ pull_request_rules:
       - base=main
       - label=releases
     actions:
-      update:
-        strict: smart
+      update: {}
   - name: Trigger merge from automerge action
     conditions:
       - status-success=test-bot (ubuntu-latest)
@@ -60,5 +57,4 @@ pull_request_rules:
       - base=main
       - label=bottles
     actions:
-      update:
-        strict: smart
+      update: {}
