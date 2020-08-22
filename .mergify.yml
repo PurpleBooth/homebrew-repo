@@ -6,7 +6,8 @@ pull_request_rules:
       - base=main
       - label=automerge-squash
     actions:
-      review: ~
+      review:
+        message: Look's good, lets merge it!
   - name: Keep branch up to date
     conditions:
       - base=main
@@ -20,7 +21,8 @@ pull_request_rules:
       - base=main
       - label=automerge-rebase
     actions:
-      review: ~
+      review:
+        message: Look's good, lets merge it!
   - name: Keep branch up to date
     conditions:
       - base=main
@@ -33,7 +35,8 @@ pull_request_rules:
       - base=main
       - label=releases
     actions:
-      review: ~
+      review:
+        message: Look's good, lets merge it!
   - name: Keep branch up to date
     conditions:
       - base=main
@@ -47,7 +50,8 @@ pull_request_rules:
       - base=main
       - label=bottles
     actions:
-      review: ~
+      review:
+        message: Look's good, lets merge it!
   - name: Keep branch up to date
     conditions:
       - base=main
