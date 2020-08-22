@@ -7,7 +7,7 @@ class FixCompaudit < Formula
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "bb869359dafd75ef3de1979de3f74af1bea2860c0e69681a3fe9cc51a01d4832" => :catalina
+    sha256 "ef00ad2706bd3d9ae4e8eddf03a2e534ff6d2b004d01fa63dffad04657501a64" => :x86_64_linux
   end
 
   depends_on "rust" => :build
