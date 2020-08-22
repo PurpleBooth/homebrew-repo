@@ -4,6 +4,12 @@ class ArtStationIGuess < Formula
   url "https://github.com/PurpleBooth/art-station-i-guess/archive/refs/tags/v0.80.12.tar.gz"
   sha256 "bd79e5cc6f89dfb786f1f1ae32753afc3e0f2286c79a826ec1b531cd0674ea65"
 
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any_skip_relocation
+    sha256 "fa5a59c9c1b54c19a997676a00d467ba372e5d92384010ae26acc7d835366cea" => :catalina
+  end
+
   depends_on "rust" => :build
   on_linux do
     depends_on "openssl@1.1"
