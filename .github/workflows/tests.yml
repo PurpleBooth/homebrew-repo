@@ -40,30 +40,5 @@ jobs:
         run: brew test-bot --only-tap-syntax
 
       - name: Run brew test-bot --only-formulae
-        run: |
-          mkdir bottles
-          cd bottles
-          brew test-bot --only-formulae
-
-      - name: Count bottles
-        id: bottles
-        if: always()
-        run: |
-          cd bottles
-          count=$(ls *.json | wc -l | xargs echo -n)
-          echo "$count bottles"
-          echo "::set-output name=count::$count"
-
-      - name: Upload bottles
-        if: always() && steps.bottles.outputs.count > 0
-        uses: actions/upload-artifact@main
-        with:
-          name: bottles
-          path: bottles
-
-      - run: brew test-bot --only-cleanup-after
-        if: always()
-
-      - name: Post Cleanup
-        if: always()
-        run: rm -rvf bottles
+        if: github.event_name == 'pull_request'
+        run: brew test-bot --only-formulae
