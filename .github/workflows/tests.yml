@@ -4,7 +4,6 @@ on:
     branches: master
   pull_request:
 env:
-  HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
 jobs:
@@ -35,14 +34,11 @@ jobs:
     if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.labels.*.name, 'CI-syntax-only')
     strategy:
       matrix:
-        version: [10.15, 10.14, 10.13]
-      fail-fast: false
-    runs-on: ${{ matrix.version }}
+        os: [ubuntu-latest, macOS-latest]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 4320
     env:
       PATH: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
-      HOMEBREW_DEVELOPER: 1
-      GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: Set up Homebrew
