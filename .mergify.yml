@@ -14,7 +14,7 @@ pull_request_rules:
       - label=automerge-squash
     actions:
       update:
-        - strict: smart
+        strict: smart
   - name: Trigger merge from automerge action
     conditions:
       - status-success=test-bot (ubuntu-latest)
