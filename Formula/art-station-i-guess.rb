@@ -7,7 +7,7 @@ class ArtStationIGuess < Formula
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "fa5a59c9c1b54c19a997676a00d467ba372e5d92384010ae26acc7d835366cea" => :catalina
+    sha256 "f2da6f99e993698e661f1f0b01570d38ebdc4e471ee3fdd5c23eeebfaed99197" => :x86_64_linux
   end
 
   depends_on "rust" => :build
