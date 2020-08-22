@@ -6,6 +6,7 @@ on:
 
 env:
   HOMEBREW_DEVELOPER: true
+  GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: true
 
 jobs:
   test-bot:
