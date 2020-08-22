@@ -47,6 +47,8 @@ jobs:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: Set up Homebrew
+        env:
+          HOMEBREW_GITHUB_ACTIONS: 0
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
