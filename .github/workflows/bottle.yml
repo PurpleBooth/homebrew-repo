@@ -39,10 +39,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
         shell: bash
         run: |
-          set -euo pipefail
-          
-          ls -lrathF
-
           HOMEBREW_PREFIX="$(brew --repo)/Library/Taps/purplebooth/homebrew-repo/Formula/"
           git config --global user.email "temporary@example.com"
           git config --global user.name "Reset when we sign commits"
@@ -93,6 +89,7 @@ jobs:
         env:
           OS: ${{ matrix.os }}
         run: |
+          git fetch origin
           git switch -c "bottles-$OS-$(git rev-parse --short HEAD)"
           git remote add homebrew "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
           git fetch homebrew
