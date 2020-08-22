@@ -4,6 +4,12 @@ class GameOfLife < Formula
   url "https://github.com/PurpleBooth/game-of-life/archive/refs/tags/v1.53.11.tar.gz"
   sha256 "f2ec3d77db5d50c864892f4824c86d4e410209e76f2146a9991263bffd9295ad"
 
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any_skip_relocation
+    sha256 "13bd86dc747f61635674b4748275d6751dc888294d98ee31e5833146a4a3f52d" => :x86_64_linux
+  end
+
   depends_on "rust" => :build
 
   def install
