@@ -49,6 +49,8 @@ jobs:
       - name: Set up Homebrew
         env:
           HOMEBREW_GITHUB_ACTIONS: 0
+          HOMEBREW_DEVELOPER: 0
+          HOMEBREW_NO_AUTO_UPDATE: 0
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
