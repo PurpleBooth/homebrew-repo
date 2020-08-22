@@ -36,7 +36,7 @@ jobs:
           COMMITTER_TOKEN: ${{secrets.COMMITTER_TOKEN}}
           HOMEBREW_BINTRAY_USER: purplebooth
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-        run: brew pr-pull --debug ${{github.event.inputs.pull_request}}
+        run: brew pr-pull --debug ${{github.event.inputs.pull_request}} --tap purplebooth/repo
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
