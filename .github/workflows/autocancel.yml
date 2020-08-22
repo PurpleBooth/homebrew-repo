@@ -1,0 +1,19 @@
+name: Cancel previous runs
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Once every 15 minutes
+    - cron: '*/15 * * * *'
+
+jobs:
+  autocancel:
+    if: github.repository == 'PurpleBooth/homebrew-repo'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel
+        uses: Homebrew/actions/cancel-previous-runs@master
+        with:
+          token: ${{secrets.COMMITTER_TOKEN}}
+          workflow: tests.yml
+          event: pull_request
