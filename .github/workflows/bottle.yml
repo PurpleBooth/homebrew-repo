@@ -40,6 +40,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          
+          ls -lrathF
 
           HOMEBREW_PREFIX="$(brew --repo)/Library/Taps/purplebooth/homebrew-repo/Formula/"
           git config --global user.email "temporary@example.com"
@@ -115,4 +117,5 @@ jobs:
       - name: Create bottle PR
         env:
           OS: ${{ matrix.os }}
-        run: gh pr create -l bottles --fill
+        run: |
+          gh pr create -l bottles --fill
