@@ -3,9 +3,7 @@ on:
   push:
     branches: main
   pull_request:
-env:
-  HOMEBREW_GITHUB_ACTIONS: 1
-  HOMEBREW_NO_AUTO_UPDATE: 1
+
 jobs:
   tap_syntax:
     if: github.repository == 'PurpleBooth/homebrew-repo'
