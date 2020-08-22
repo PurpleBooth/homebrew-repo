@@ -1,40 +1,56 @@
 pull_request_rules:
-  - name: automatic squash merge for main when tests pass
+  - name: Trigger merge from automerge action
     conditions:
       - status-success=test-bot (ubuntu-latest)
       - status-success=test-bot (macOS-latest)
       - base=main
       - label=automerge-squash
     actions:
-      merge:
-        strict: smart
-        method: squash
-  - name: automatic rebase for main when tests pass
+      review: ~
+  - name: Keep branch up to date
+    conditions:
+      - base=main
+      - label=automerge-squash
+    actions:
+      update: ~
+  - name: Trigger merge from automerge action
     conditions:
       - status-success=test-bot (ubuntu-latest)
       - status-success=test-bot (macOS-latest)
       - base=main
       - label=automerge-rebase
     actions:
-      merge:
-        strict: smart
-        method: rebase
-  - name: automatic rebase for releases
+      review: ~
+  - name: Keep branch up to date
+    conditions:
+      - base=main
+      - label=automerge-rebase
+    actions:
+      update: ~
+  - name: Trigger merge from automerge action
     conditions:
       - status-success=test-bot
       - base=main
       - label=releases
     actions:
-      merge:
-        strict: smart
-        method: merge
-  - name: automatic rebase for bottles
+      review: ~
+  - name: Keep branch up to date
+    conditions:
+      - base=main
+      - label=releases
+    actions:
+      update: ~
+  - name: Trigger merge from automerge action
     conditions:
       - status-success=test-bot (ubuntu-latest)
       - status-success=test-bot (macOS-latest)
       - base=main
       - label=bottles
     actions:
-      merge:
-        strict: smart
-        method: merge
+      review: ~
+  - name: Keep branch up to date
+    conditions:
+      - base=main
+      - label=bottles
+    actions:
+      update: ~
