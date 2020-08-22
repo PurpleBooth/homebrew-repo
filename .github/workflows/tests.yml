@@ -42,7 +42,6 @@ jobs:
     env:
       PATH: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
       HOMEBREW_DEVELOPER: 1
-      GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: Set up Homebrew
@@ -58,25 +57,6 @@ jobs:
           mkdir bottles
           cd bottles
           brew test-bot --only-formulae
-
-      - name: Output brew test-bot --only-formulae failures
-        if: always()
-        run: |
-          cat bottles/steps_output.txt
-          rm bottles/steps_output.txt
-
-      - name: Upload logs
-        if: failure()
-        uses: actions/upload-artifact@main
-        with:
-          name: logs (${{ matrix.os }})
-          path: bottles/logs
-
-      - name: Delete logs and home
-        if: always()
-        run: |
-          rm -rvf bottles/logs
-          rm -rvf bottles/home
 
       - name: Count bottles
         id: bottles
