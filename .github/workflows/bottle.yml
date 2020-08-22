@@ -81,5 +81,4 @@ jobs:
             git switch main
 
             git clean -f
-            brew uninstall "purplebooth/repo/$PACKAGE"
           done
