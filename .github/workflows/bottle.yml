@@ -70,14 +70,14 @@ jobs:
               "$FULL_PACKAGE" || true
 
 
-            git switch -c "bottles-$OS-$(git rev-parse --short HEAD)"
+            git switch -c "bottles-$PACKAGE-$OS-$(git rev-parse --short HEAD)"
 
             cp "$HOMEBREW_PREFIX/"* Formula/
             git -C "$HOMEBREW_PREFIX" reset --hard origin/main
             git -C "$HOMEBREW_PREFIX" clean -fd
 
             git add Formula
-            git commit -m "fix: Added new bottles"
+            git commit -m "fix: Added new bottles for $PACKAGE $OS"
             gh pr create -l bottles --fill
             git switch main
 
