@@ -68,10 +68,13 @@ jobs:
 
             cp "$HOMEBREW_PREFIX/*" Formula/
             git -C "$HOMEBREW_PREFIX/*" reset --hard origin/main
+            git -C "$HOMEBREW_PREFIX" clean -fd
 
             git add Formula
             git commit -m "fix: Added new bottles"
             gh pr create -l bottles --fill
             git switch main
+            
             git clean -f
+            brew uninstall "purplebooth/repo/$PACKAGE"
           done
