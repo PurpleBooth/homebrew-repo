@@ -58,28 +58,27 @@ jobs:
             brew install --verbose --build-bottle "$FULL_PACKAGE"
             brew bottle --verbose --json "$FULL_PACKAGE" --root-url="$BINTRAY_DL_URL"
             brew bottle --merge --write --no-commit "./$PACKAGE--"*".bottle.json"
-            brew test-bot \
-              --skip-setup \
-              --ci-upload \
-              --bintray-org="$BINTRAY_ORG" \
-              --root-url="$BINTRAY_DL_URL" \
-              --tap=purplebooth/repo \
-              --git-name="$(git config --get user.name)" \
-              --git-email="$(git config --get user.email)" \
-              --publish \
-              "$FULL_PACKAGE" || true
+            {
+              brew test-bot \
+                --skip-setup \
+                --ci-upload \
+                --bintray-org="$BINTRAY_ORG" \
+                --root-url="$BINTRAY_DL_URL" \
+                --tap=purplebooth/repo \
+                --git-name="$(git config --get user.name)" \
+                --git-email="$(git config --get user.email)" \
+                --publish \
+                "$FULL_PACKAGE"
+              git switch -c "bottles-$PACKAGE-$OS-$(git rev-parse --short HEAD)"
 
-
-            git switch -c "bottles-$PACKAGE-$OS-$(git rev-parse --short HEAD)"
-
-            cp "$HOMEBREW_PREFIX/"* Formula/
+              cp "$HOMEBREW_PREFIX/"* Formula/
+              git add Formula
+              git commit -m "fix: Added new bottles for $PACKAGE $OS"
+              gh pr create -l bottles --fill
+              git switch main
+            } || true
+            
             git -C "$HOMEBREW_PREFIX" reset --hard origin/main
             git -C "$HOMEBREW_PREFIX" clean -fd
-
-            git add Formula
-            git commit -m "fix: Added new bottles for $PACKAGE $OS"
-            gh pr create -l bottles --fill
-            git switch main
-
             git clean -f
           done
