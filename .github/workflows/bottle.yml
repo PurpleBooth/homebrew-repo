@@ -36,7 +36,7 @@ jobs:
       - name: Build missing bottles
         env:
           OS: ${{ matrix.settings.os }}
-          BREW_TAG: ${{ matrix.settings.catalina }}
+          BREW_TAG: ${{ matrix.settings.brew-tag }}
           REPOSITORY_NAME: ${{ steps.get_repository_name.outputs.REPOSITORY_NAME }}
           HOMEBREW_BINTRAY_KEY: "${{ secrets.HOMEBREW_BINTRAY_KEY }}"
           HOMEBREW_BINTRAY_USER: purplebooth
