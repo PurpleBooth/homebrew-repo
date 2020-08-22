@@ -72,7 +72,7 @@ jobs:
             git switch -c "bottles-$OS-$(git rev-parse --short HEAD)"
 
             cp "$HOMEBREW_PREFIX/"* Formula/
-            git -C "$HOMEBREW_PREFIX/"* reset --hard origin/main
+            git -C "$HOMEBREW_PREFIX" reset --hard origin/main
             git -C "$HOMEBREW_PREFIX" clean -fd
 
             git add Formula
