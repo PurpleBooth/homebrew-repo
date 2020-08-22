@@ -7,7 +7,7 @@ class FixGnupgPermissions < Formula
   bottle do
     root_url "https://dl.bintray.com/purplebooth/bottles-repo"
     cellar :any_skip_relocation
-    sha256 "de7fe258a4e1f8946f9d437176183bd965f1f71675216216026fcf5075d1cae2" => :catalina
+    sha256 "3bb070d9252d8109962c4f0d03d28fbec6a1de401260bfe7524a04b93c51e4c9" => :x86_64_linux
   end
 
   depends_on "rust" => :build
