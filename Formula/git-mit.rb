@@ -1,8 +1,8 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.98.5.tar.gz"
-  sha256 "d259f95e18162d4afafe27845123fb2dfba009c781a32c5d51f08eaf647787f6"
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.98.6.tar.gz"
+  sha256 "97d97fabfc67aed089266a5c997683b50f63eed26e86b1add35530c43d2d8a61"
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "git"
