@@ -44,6 +44,7 @@ jobs:
         name: Checkout this repository
         with:
           token: ${{ secrets.COMMITTER_TOKEN }}
+          fetch-depth: 0
 
       - name: Import GPG key
         id: import_gpg
