@@ -9,10 +9,6 @@ jobs:
       matrix:
         os: [ubuntu-latest, macOS-latest]
     steps:
-      - name: Fix for https://github.com/Homebrew/linuxbrew-core/issues/20914
-        run: sudo ln -s /usr/include/locale.h /usr/include/xlocale.h
-        if: runner.os == 'Linux'
-
       - name: Build missing bottles
         env:
           REPOSITORY_NAME: ${{ steps.get_repository_name.outputs.REPOSITORY_NAME }}
