@@ -105,4 +105,5 @@ jobs:
             } || true
 
           done
+          git push origin "bottles-$(git rev-parse --short HEAD)"
           gh pr create -l bottles --fill
