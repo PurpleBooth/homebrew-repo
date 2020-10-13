@@ -63,6 +63,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: bottles
+          path: bottles
 
       - shell: bash
         name: Merge bottles
