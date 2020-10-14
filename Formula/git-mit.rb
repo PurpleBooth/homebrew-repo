@@ -3,6 +3,7 @@ class GitMit < Formula
   homepage "https://github.com/PurpleBooth/git-mit"
   url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.98.31.tar.gz"
   sha256 "152f0f639bddfc0c12c6a5b1bf91dcd1805e4ec026a10388122acee850d61e3f"
+
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "git"
