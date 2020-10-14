@@ -21,7 +21,8 @@ pull_request_rules:
         method: rebase
   - name: automatic rebase for releases
     conditions:
-      - status-success=test-bot
+      - status-success=test-bot (ubuntu-latest)
+      - status-success=test-bot (macOS-latest)
       - base=main
       - label=releases
     actions:
