@@ -84,7 +84,7 @@ jobs:
             FULL_PACKAGE="purplebooth/repo/$PACKAGE"
 
             for BOTTLE in "./$PACKAGE--"*".bottle.json" ; do
-              brew bottle --merge --write --no-commit "$BOTTLE"
+              brew bottle --merge --write "$BOTTLE"
             done
 
             {
@@ -99,8 +99,6 @@ jobs:
                 --publish \
                 "$FULL_PACKAGE"
               cp "$HOMEBREW_PREFIX/$PACKAGE.rb" Formula/
-              git add *.rb
-              git commit -m "fix: Added missing bottles for $FULL_PACKAGE v$(brew info --json "$FULL_PACKAGE" | jq -r .[0].versions.stable)"
             } || true
 
           done
