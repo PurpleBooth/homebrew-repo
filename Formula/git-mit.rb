@@ -3,6 +3,14 @@ class GitMit < Formula
   homepage "https://github.com/PurpleBooth/git-mit"
   url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.98.31.tar.gz"
   sha256 "152f0f639bddfc0c12c6a5b1bf91dcd1805e4ec026a10388122acee850d61e3f"
+
+  bottle do
+    root_url "https://dl.bintray.com/purplebooth/bottles-repo"
+    cellar :any
+    sha256 "6025fd5d0a90517106ff3980d236df37ddc5bb95abf8b4d8a13067b78c858d80" => :catalina
+    sha256 "22ce2a12acb63fa3a4911458f65780af331ffaaee9d7eea809e70c528dfa6de6" => :x86_64_linux
+  end
+
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "git"
