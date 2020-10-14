@@ -73,7 +73,9 @@ jobs:
         run: |
           set -euo pipefail
 
-          git switch -c "bottles-$(git rev-parse --short HEAD)"
+          GIT_BRANCH="bottles-$(git rev-parse --short HEAD)"
+
+          git switch -c "$GIT_BRANCH"
 
           brew tap purplebooth/repo
           HOMEBREW_PREFIX="$(brew --repo)/Library/Taps/purplebooth/homebrew-repo/Formula/"
@@ -102,5 +104,5 @@ jobs:
             } || true
 
           done
-          git push origin "bottles-$(git rev-parse --short HEAD)"
+          git push origin "$GIT_BRANCH"
           gh pr create -l bottles --fill
