@@ -104,7 +104,8 @@ jobs:
 
           done
 
-          if [ -n "$(git diff main)" ] ; then
+          git fetch origin
+          if [ -n "$(git diff origin/main)" ] ; then
             git push origin "$GIT_BRANCH"
             gh pr create -l bottles --fill
           fi
