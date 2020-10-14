@@ -103,5 +103,8 @@ jobs:
             } || true
 
           done
-          git push origin "$GIT_BRANCH"
-          gh pr create -l bottles --fill
+
+          if [ -n "$(git diff main)" ] ; then
+            git push origin "$GIT_BRANCH"
+            gh pr create -l bottles --fill
+          fi
