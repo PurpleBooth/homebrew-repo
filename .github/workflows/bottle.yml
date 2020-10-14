@@ -97,7 +97,7 @@ jobs:
                 --publish \
                 "$FULL_PACKAGE"
               cp "$HOMEBREW_PREFIX/$PACKAGE.rb" Formula/
-              git add Formula
+              git add *.rb
               git commit -m "fix: Added missing bottles for $FULL_PACKAGE v$(brew info --json "$FULL_PACKAGE" | jq -r .[0].versions.stable)"
             } || true
 
