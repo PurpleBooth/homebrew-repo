@@ -1,8 +1,8 @@
 class FixGnupgPermissions < Formula
   desc "Fixes permissions problems on the gnupg directory"
   homepage "https://github.com/PurpleBooth/fix-gnupg-permissions"
-  url "https://github.com/PurpleBooth/fix-gnupg-permissions/archive/refs/tags/v0.49.20.tar.gz"
-  sha256 "91095afca2ec15600fab63cfbb614f033329f08795fa702fc155982c7395ad14"
+  url "https://github.com/PurpleBooth/fix-gnupg-permissions/archive/refs/tags/v0.49.21.tar.gz"
+  sha256 "840a8314b2bdb90feaeeb970b1d3b514aca65197cf2c195c69c7f80a8ca5b405"
   license "CC0-1.0"
 
   depends_on "rust" => :build
