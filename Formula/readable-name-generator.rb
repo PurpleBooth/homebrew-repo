@@ -1,8 +1,8 @@
 class ReadableNameGenerator < Formula
   desc "Generate a readable name using Dockers formula"
   homepage "https://github.com/PurpleBooth/readable-name-generator"
-  url "https://github.com/PurpleBooth/readable-name-generator/archive/refs/tags/v2.91.0.tar.gz"
-  sha256 "7846cca8b329d77f076e1712ffdabed37d3455a4016b22b240174c9f5ed0c512"
+  url "https://github.com/PurpleBooth/readable-name-generator/archive/refs/tags/v2.92.1.tar.gz"
+  sha256 "62367dd8b3f733b22e6dd8548883881786072b8b47470adc236557533f752b82"
 
   depends_on "go" => :build
 
