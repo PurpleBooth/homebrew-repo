@@ -1,8 +1,8 @@
 class GitMit < Formula
   desc "My personal git commit hooks"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.98.56.tar.gz"
-  sha256 "f072506b367a513493ca9908df6b0267de4f9bfbde25af802b39fa484b4117f4"
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.98.57.tar.gz"
+  sha256 "ed190ff626460cb0e3e1a71a05f64901c2a73e093401c0b97ee9920ca8c5921d"
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "git"
@@ -43,7 +43,7 @@ class GitMit < Formula
   test do
     system "git", "init", testpath
     system "#{bin}/git-mit-install"
-    output = Utils.popen_read("#{bin}/git-mit-config mit example")
+    output = Utils.popen_read("#{bin}/git-mit-config", "mit", "example")
     (testpath/"git-mit.toml").write output
     system "#{bin}/git-mit", "-c", "git-mit.toml", "se"
     system "git-mit-relates-to", "#12356"
