@@ -1,24 +1,4 @@
 pull_request_rules:
-  - name: automatic squash merge for main when tests pass
-    conditions:
-      - status-success=test-bot (ubuntu-latest)
-      - status-success=test-bot (macOS-latest)
-      - base=main
-      - label=automerge-squash
-    actions:
-      merge:
-        strict: smart
-        method: squash
-  - name: automatic rebase for main when tests pass
-    conditions:
-      - status-success=test-bot (ubuntu-latest)
-      - status-success=test-bot (macOS-latest)
-      - base=main
-      - label=automerge-rebase
-    actions:
-      merge:
-        strict: smart
-        method: rebase
   - name: automatic rebase for releases
     conditions:
       - status-success=test-bot (ubuntu-latest)
@@ -26,16 +6,8 @@ pull_request_rules:
       - base=main
       - label=releases
     actions:
-      merge:
-        strict: smart
-        method: merge
-  - name: automatic rebase for bottles
-    conditions:
-      - status-success=test-bot (ubuntu-latest)
-      - status-success=test-bot (macOS-latest)
-      - base=main
-      - label=bottles
-    actions:
-      merge:
-        strict: smart
-        method: merge
+      comment:
+        message: "Looks good, merging"
+      label:
+        add:
+          - pr-pull
