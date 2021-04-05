@@ -2,7 +2,7 @@ class GitMit < Formula
   desc "Minimalist set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
   url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v3.98.61.tar.gz"
-  sha256 "707d00daa5b7b47a0b4fbec115fff3737db97d398abbbd1dd6ff7b4fbb6d9361"
+  sha256 "4ecdd6d9d2613c61153610d579b7d2757aa30ea78b78c10fc82f4f7733f2b9fa"
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "git"
