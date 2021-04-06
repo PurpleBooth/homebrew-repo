@@ -1,13 +1,13 @@
 pull_request_rules:
-  - name: automatic rebase for releases
-    conditions:
-      - status-success=test-bot (ubuntu-latest)
-      - status-success=test-bot (macos-latest)
-      - base=main
-      - label=releases
-    actions:
-      comment:
-        message: "Looks good, merging"
-      label:
-        add:
-          - pr-pull
+- name: automatic rebase for releases
+  conditions:
+  - status-success=test-bot (ubuntu-latest)
+  - status-success=test-bot (macos-latest)
+  - base=main
+  - label=releases
+  actions:
+    comment:
+      message: Looks good, merging
+    label:
+      add:
+      - pr-pull
