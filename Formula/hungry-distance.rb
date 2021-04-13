@@ -1,14 +1,8 @@
 class HungryDistance < Formula
   desc "Calculate the distance between two points in an XYZ space"
   homepage "https://github.com/PurpleBooth/hungry-distance"
-  url "https://github.com/PurpleBooth/hungry-distance/archive/refs/tags/v0.1.7.tar.gz"
-  sha256 "6c1411ff2f3e9fccee34138b76bcbb7c057dfcb0a5bf14ee71d0bd4ae84560d5"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/hungry-distance-0.1.7"
-    sha256 cellar: :any_skip_relocation, catalina:     "d40c3ad920c9bb53be0972de0f4ec471427b97712cc5af9439aee60313902ab8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "38af400eec29f7484edb3ef4a4c212eed9340d4157bb8ffeee1dd82fbcccab03"
-  end
+  url "https://github.com/PurpleBooth/hungry-distance/archive/refs/tags/v0.1.8.tar.gz"
+  sha256 "de5852c63156f9b601824184f064916162a8ac75d7f22126b1333aea52c28532"
 
   depends_on "rust" => :build
 
