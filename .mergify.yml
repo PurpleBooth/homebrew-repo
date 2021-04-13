@@ -11,3 +11,13 @@ pull_request_rules:
     label:
       add:
       - pr-pull
+- name: automatic rebase for dependencies
+  conditions:
+  - status-success=test-bot (ubuntu-latest)
+  - status-success=test-bot (macos-latest)
+  - base=main
+  - author~=^dependabot(|-preview)\[bot\]$
+  actions:
+    merge:
+      strict: smart+fasttrack
+      method: merge
