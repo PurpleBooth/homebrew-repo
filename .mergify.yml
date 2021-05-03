@@ -5,6 +5,7 @@ pull_request_rules:
   - status-success=test-bot (macos-latest)
   - base=main
   - label=releases
+  - author=PurpleBooth
   actions:
     comment:
       message: Looks good, merging
