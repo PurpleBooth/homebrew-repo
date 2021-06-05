@@ -1,3 +1,9 @@
+queue_rules:
+- name: default
+  conditions:
+  - status-success=test-bot (ubuntu-latest)
+  - status-success=test-bot (macos-latest)
+
 pull_request_rules:
 - name: automatic rebase for releases
   conditions:
@@ -7,21 +13,10 @@ pull_request_rules:
   - label=releases
   - author=PurpleBooth
   actions:
-    comment:
-      message: Looks good, merging
     label:
       add:
       - pr-pull
-- name: automatic rebase for dependencies
-  conditions:
-  - status-success=test-bot (ubuntu-latest)
-  - status-success=test-bot (macos-latest)
-  - base=main
-  - author~=^dependabot(|-preview)\[bot\]$
-  actions:
-    merge:
-      strict: smart+fasttrack
-      method: merge
+
 - name: request review on external contributor
   conditions:
   - -author=PurpleBooth
@@ -29,3 +24,15 @@ pull_request_rules:
     assign:
       add_users:
       - PurpleBooth
+
+- name: automatic rebase for dependencies
+  conditions:
+  - status-success=test-bot (ubuntu-latest)
+  - status-success=test-bot (macos-latest)
+  - base=main
+  - author~=^dependabot(|-preview)\[bot\]$
+  actions:
+    queue:
+      method: rebase
+      rebase_fallback: merge
+      name: default
