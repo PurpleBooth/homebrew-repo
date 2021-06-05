@@ -22,8 +22,6 @@ pull_request_rules:
     merge:
       strict: smart+fasttrack
       method: merge
-
-pull_request_rules:
 - name: request review on external contributor
   conditions:
   - -author=PurpleBooth
