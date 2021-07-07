@@ -1,14 +1,8 @@
 class Whatismyip < Formula
   desc "Manage and provision dotfiles"
   homepage "https://github.com/PurpleBooth/whatismyip"
-  url "https://github.com/PurpleBooth/whatismyip/archive/v0.9.2.tar.gz"
-  sha256 "39a950b265ea28428db677fcdf580cd311a264c5791d345e3a5575fd7876c827"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/whatismyip-0.9.2"
-    sha256 cellar: :any_skip_relocation, catalina:     "c2fbeddeb12f61ccf381d35850add1be76a988cf7b05835f0930f9d5a33a4550"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "67137cce14e6aebf825cf72a45373475bf091f0447ef421301c728919408e7cc"
-  end
+  url "https://github.com/PurpleBooth/whatismyip/archive/v0.9.3.tar.gz"
+  sha256 "4d43d72fb33e06a234e6d90b4834a7cb7eda6b93ab91efafc3b07a46fc580949"
 
   depends_on "rust" => :build
 
