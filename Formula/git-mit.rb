@@ -1,14 +1,8 @@
 class GitMit < Formula
   desc "Minimalist set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/v4.0.13.tar.gz"
-  sha256 "453f6fa58d8848ca2aa6418616c981d1a7be26de59c767b162389700aa84dd74"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-mit-4.0.13"
-    sha256 cellar: :any,                 catalina:     "cb764ba8f3209a24ea87811e443fbacf13fd325aa289502816b5449e849a0295"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3b7238087bf85a7f0db8a5a9537969b502cc8fa64e024decd00134e86b5902c3"
-  end
+  url "https://github.com/PurpleBooth/git-mit/archive/v4.0.14.tar.gz"
+  sha256 "5c1df31426f24944766ab2f8ee10a24be4f0a140bc417b390f067c3ed3b0be5c"
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "git"
@@ -55,7 +49,7 @@ class GitMit < Formula
     system "#{bin}/git-mit", "-c", "git-mit.toml", "se"
     system "git-mit-relates-to", "#12356"
     system "git", "add", testpath
-    system "git", "commit", "-m", "Exammple Commit"
+    system "git", "commit", "-m", "Example Commit"
     system "#{bin}/git-mit-config", "lint", "available"
   end
 end
