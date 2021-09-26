@@ -3,6 +3,12 @@ class GitMit < Formula
   homepage "https://github.com/PurpleBooth/git-mit"
   url "https://github.com/PurpleBooth/git-mit/archive/v5.7.5.tar.gz"
   sha256 "250e311b7cb7d5a6e67192ae14de49ac75438e4ca1f2f7fa63037730291099bd"
+
+  bottle do
+    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-mit-5.7.5"
+    sha256 cellar: :any,                 catalina:     "9a3f1951e5c44d663c61e9b41d39b61134bf7f9f078870ea3a16cf41a083e77c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d0e2299e99566be0b24def9acb14c70315de03b9cdf8d17f39e8770c914cc666"
+  end
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
