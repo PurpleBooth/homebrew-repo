@@ -1,17 +1,10 @@
 class GitMit < Formula
   desc "Minimalist set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/v5.6.4.tar.gz"
-  sha256 "f3a50d77313d623957541dbdf8ab072d34be2b065f8da3b111ceeb24e778e5b4"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-mit-5.6.4"
-    sha256 cellar: :any,                 catalina:     "0c813589af7be94709057729819e11b374a23109b6e67a91212fe2438b06cdd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "fce500448d3c87677cce685d60b3500516411c4d239bb307d1c18c42c14bce78"
-  end
+  url "https://github.com/PurpleBooth/git-mit/archive/v5.7.3.tar.gz"
+  sha256 "0d2ed835a933890d443afcc87366c65985663b3a2ab1a774e10cf50b4fa3fab1"
   depends_on "pandoc" => :build
   depends_on "rust" => :build
-  depends_on "git"
   depends_on "openssl@1.1"
   on_linux do
     depends_on "libxcb"
@@ -45,6 +38,16 @@ class GitMit < Formula
       system "pandoc", "--wrap=auto", "-s", "-f", "markdown", "-t", "man", file, "-o", "#{base}.1"
       man1.install "#{base}.1"
     end
+  end
+
+  def caveats
+    <<~EOS
+      Update your git config to finish installation:
+        # Install into existing repository
+        $ git mit-install
+        # Install into all new repositories
+        $ git mit-install --scope=global
+    EOS
   end
 
   test do
