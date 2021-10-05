@@ -1,14 +1,8 @@
 class GitMit < Formula
   desc "Minimalist set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/v5.9.6.tar.gz"
-  sha256 "f655beeaa3316fa7c2b8c372815fc1504646d73d93bfd48c25eb173081cba431"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-mit-5.9.6"
-    sha256 cellar: :any,                 catalina:     "c431ca15d2ba25d4e2d5c4b7d0309ae6ecf5feecdbf38c61515ce966754cbbbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a51b6609a45bfff93d6994e44df5179f7f90b8e58335f05d055406b922a19427"
-  end
+  url "https://github.com/PurpleBooth/git-mit/archive/v5.9.7.tar.gz"
+  sha256 "4ddc03d641a7a38c0dc3f46aa461c8485f5462ff6bd9fd0302185339aa805100"
   depends_on "pandoc" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
@@ -27,8 +21,7 @@ class GitMit < Formula
     system "cargo", "install", "--root", prefix, "--path", "./git-mit-install/"
 
     Pathname.glob("**/bash_completion/*").each do |file|
-      base = file.basename(".bash")
-      bash_completion.install file => base
+      bash_completion.install file
     end
 
     Pathname.glob("**/fish_completion/*").each do |file|
