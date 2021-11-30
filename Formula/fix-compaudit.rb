@@ -1,14 +1,8 @@
 class FixCompaudit < Formula
   desc "Fixes problems reported by compuaudit"
   homepage "https://github.com/PurpleBooth/fix-compaudit"
-  url "https://github.com/PurpleBooth/fix-compaudit/archive/refs/tags/v0.46.66.tar.gz"
-  sha256 "1a4f14878fb02404f2070d7fb73d69f335677667a05f7361c808d96579bb3a88"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/fix-compaudit-0.46.66"
-    sha256 cellar: :any_skip_relocation, catalina:     "71d86e8db97e27d183b3a35b16fad7a33cfc1aa3e3f937a09f5a98c9a9fbe061"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ff1ef6205e9b8d34982004ae9bf15a8644d32701035755840592c7c4a20231c4"
-  end
+  url "https://github.com/PurpleBooth/fix-compaudit/archive/refs/tags/v0.46.67.tar.gz"
+  sha256 "4cd6dfe5a19e5e41a0bd73ac23ce407507f8f870e09d9e5f7d24de0bde4835fb"
 
   depends_on "rust" => :build
   depends_on "zsh"
