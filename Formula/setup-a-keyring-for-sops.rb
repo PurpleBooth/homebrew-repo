@@ -1,14 +1,8 @@
 class SetupAKeyringForSops < Formula
   desc "Use gcloud to setup everything needed for SOPS"
   homepage "https://github.com/PurpleBooth/setup-a-keyring-for-sops"
-  url "https://github.com/PurpleBooth/setup-a-keyring-for-sops/archive/refs/tags/v0.42.29.tar.gz"
-  sha256 "a3c67bd35111323340bdcd4d5fd409a21c8a8dbf4d84cbc5baa3943bcb1c5be1"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/setup-a-keyring-for-sops-0.42.29"
-    sha256 cellar: :any_skip_relocation, big_sur:      "6b42f1848ce6c1f95914096ee0c0f8d66b186021edbc168b71e21ad1b98ee9a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f1c8e528904b01ea0eb788049f6b54019fe0dc031253c19d139fafe74b92d5fa"
-  end
+  url "https://github.com/PurpleBooth/setup-a-keyring-for-sops/archive/refs/tags/v0.42.30.tar.gz"
+  sha256 "512cf540f47e4a8cd6fa15d9612cd3ce8fafa719cd9125a67dff61f68dc355bc"
 
   depends_on "rust" => :build
 
