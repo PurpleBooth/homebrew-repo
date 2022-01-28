@@ -1,14 +1,8 @@
 class GitMit < Formula
   desc "Minimalist set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/v5.12.28.tar.gz"
-  sha256 "5b951865b3daf6ed760dc3dded1b5d8c3df8600f2e58f5b6ecffc3c99ef2e929"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-mit-5.12.28"
-    sha256 cellar: :any,                 big_sur:      "240b1858ee9a6a4fab4e3ba32a0e6904f70c2726e385872a25e04d00755f4126"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7c612b7d5efc6f2ad6066d37f10f1dc847479c6016fa5d16733bdfa1ee328e07"
-  end
+  url "https://github.com/PurpleBooth/git-mit/archive/v5.12.29.tar.gz"
+  sha256 "3066f4e5e4b0914b0918c3782c693bc456b092bc663f9890a546f53e8c622ad3"
   depends_on "help2man" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
