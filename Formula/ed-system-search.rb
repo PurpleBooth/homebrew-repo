@@ -1,14 +1,8 @@
 class EdSystemSearch < Formula
   desc "Find interesting systems in Elite: Dangerous"
   homepage "https://github.com/PurpleBooth/ed-system-search"
-  url "https://github.com/PurpleBooth/ed-system-search/archive/v1.1.25.tar.gz"
-  sha256 "d6208f87cb127082e8013f73fdbee13f31b09c9e363a5b35fadb3edeb38e398f"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/ed-system-search-1.1.25"
-    sha256 cellar: :any_skip_relocation, big_sur:      "93bb9539cceebd2545023925c9b668c9e39ae51070397dcce83b2b8401290932"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a12e0947efaca61b1b506cc76991a726370c7fe68ea344c0ff3f8827f3b11a9d"
-  end
+  url "https://github.com/PurpleBooth/ed-system-search/archive/v1.1.26.tar.gz"
+  sha256 "9019b2845d46e9887c3daa109d1dafc4693012ce8d17131a26945279caefd61b"
 
   depends_on "rust" => :build
 
