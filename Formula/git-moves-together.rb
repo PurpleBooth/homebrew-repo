@@ -4,6 +4,12 @@ class GitMovesTogether < Formula
   url "https://github.com/PurpleBooth/git-moves-together/archive/v2.5.22.tar.gz"
   sha256 "a5258e33bd70117fb21f55fd9a36248a0c7c028081ecacb83a6e76790332f162"
 
+  bottle do
+    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-moves-together-2.5.22"
+    sha256 cellar: :any,                 big_sur:      "965e4025c6df3dc03cc6d7fd710580145ba51ceda59811daffd50ffb77a06f3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c79653f1c39258f38135a704f9c5edd1c4d50b0308f78a577b0e08496613e52a"
+  end
+
   depends_on "rust" => :build
   depends_on "openssl@1.1"
   on_linux do
