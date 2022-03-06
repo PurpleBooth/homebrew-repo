@@ -4,6 +4,12 @@ class FastConventional < Formula
   url "https://github.com/PurpleBooth/fast-conventional/archive/v2.1.0.tar.gz"
   sha256 "8d90b7698a8f59563c6fecaea00a919ba0f7776962d091d82ac40283bcedaf4d"
 
+  bottle do
+    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/fast-conventional-2.1.0"
+    sha256 cellar: :any_skip_relocation, big_sur:      "93677661177dc831109bc660ff653b42d546225876c6e4312a43f86f8b0bd07d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "da134e96969891f686f391ec14e034801dc7ba937ae485cad6ed7291a05880aa"
+  end
+
   depends_on "help2man" => :build
   depends_on "rust" => :build
   depends_on "socat" => :test
