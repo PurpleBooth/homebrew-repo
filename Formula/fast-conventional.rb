@@ -1,14 +1,8 @@
 class FastConventional < Formula
   desc "Make conventional commits, faster, and consistently name scopes"
   homepage "https://github.com/PurpleBooth/fast-conventional"
-  url "https://github.com/PurpleBooth/fast-conventional/archive/v2.0.0.tar.gz"
-  sha256 "1965e89012bf86698932769cc7690bba42bd424fa7af099c1dde21f7b46c16be"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/fast-conventional-2.0.0"
-    sha256 cellar: :any_skip_relocation, big_sur:      "72af61df1adb1d4c41ed0554e119408ec549108d70a4cdbf4e28bbeada32872b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2154e3ec69c3b6bf45404de26f504e2834aa23a6a65ca57579e96d5694c548fa"
-  end
+  url "https://github.com/PurpleBooth/fast-conventional/archive/v2.1.0.tar.gz"
+  sha256 "8d90b7698a8f59563c6fecaea00a919ba0f7776962d091d82ac40283bcedaf4d"
 
   depends_on "help2man" => :build
   depends_on "rust" => :build
@@ -33,6 +27,16 @@ class FastConventional < Formula
     # Man pages
     output = Utils.safe_popen_read("help2man", "#{bin}/fast-conventional")
     (man1/"fast-conventional.1").write output
+  end
+
+  def caveats
+    <<~EOS
+      Update your git config to finish installation:
+        $ git config --global alias.fci '-c "core.editor=fast-conventional editor" commit'
+      To use it run
+        $ git fci
+      You may add any of the usual commit arguments
+    EOS
   end
 
   test do
