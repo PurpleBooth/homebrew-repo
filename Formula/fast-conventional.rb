@@ -1,14 +1,8 @@
 class FastConventional < Formula
   desc "Make conventional commits, faster, and consistently name scopes"
   homepage "https://github.com/PurpleBooth/fast-conventional"
-  url "https://github.com/PurpleBooth/fast-conventional/archive/v2.2.2.tar.gz"
-  sha256 "c367e2e69c4579a95d11805910c74240573e2de23e280f24f611f0e98ce31ce1"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/fast-conventional-2.2.2"
-    sha256 cellar: :any_skip_relocation, big_sur:      "d80a79ea38c6fb621f81d0fa8359e01a83d9c12564623c27d93ebf1f4e52b633"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a9d1abd757a3863e864b7416e92559090c80437c97107fd39ae07d355ce18c4c"
-  end
+  url "https://github.com/PurpleBooth/fast-conventional/archive/v2.2.3.tar.gz"
+  sha256 "1ddf211729ba2d767cce18c22b7ced3faffbfb0ef37f185ccc84ffa9a84092fc"
 
   depends_on "help2man" => :build
   depends_on "rust" => :build
