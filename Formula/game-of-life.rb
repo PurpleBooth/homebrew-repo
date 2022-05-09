@@ -1,14 +1,8 @@
 class GameOfLife < Formula
   desc "PurpleBooth's implementation of Conway's Game of life"
   homepage "https://github.com/PurpleBooth/game-of-life"
-  url "https://github.com/PurpleBooth/game-of-life/archive/v1.53.62.tar.gz"
-  sha256 "54bfa13ef25c95e05d491933a895a0c9f824df409c13b877063253e8da7d3671"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/game-of-life-1.53.62"
-    sha256 cellar: :any_skip_relocation, big_sur:      "4ebee44fab2c0485b421aefbf97602b3bb8a72a88a16eec176f16aa4bedd3dc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0f9c85143348d35ba626ace09d427e562b40868e906a955f48b328b78ca914c9"
-  end
+  url "https://github.com/PurpleBooth/game-of-life/archive/v1.53.63.tar.gz"
+  sha256 "c6a704d9e1cb7597d8de47f405e02f825602fedd291b1c8b48d37136ddb3e18d"
 
   depends_on "rust" => :build
 
