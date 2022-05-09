@@ -3,6 +3,12 @@ class ReadableNameGenerator < Formula
   homepage "https://github.com/PurpleBooth/readable-name-generator"
   url "https://github.com/PurpleBooth/readable-name-generator/archive/v2.100.30.tar.gz"
   sha256 "794b85a91c72559b3ed215f34ea20ae00b5cfa045b2913795c3660b5618cd22f"
+
+  bottle do
+    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/readable-name-generator-2.100.30"
+    sha256 cellar: :any_skip_relocation, big_sur:      "426c441c279cdd7232b9376d034dc64c0f9f68c3c8621e371181758268f8069a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c52227ebf05fb88e2ce01b4165ebff15d3b454d9d729ace26d6d7de720f10c25"
+  end
   depends_on "help2man" => :build
   depends_on "rust" => :build
   depends_on "specdown/repo/specdown" => :test
