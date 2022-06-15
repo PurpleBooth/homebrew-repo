@@ -4,6 +4,12 @@ class HungryDistance < Formula
   url "https://github.com/PurpleBooth/hungry-distance/archive/v0.1.32.tar.gz"
   sha256 "38e917e887980b033f6c1bbc53ae95aa8d6dc1e275acb047d786661050184f8d"
 
+  bottle do
+    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/hungry-distance-0.1.32"
+    sha256 cellar: :any_skip_relocation, big_sur:      "d8882aa27678bb5e87e6644bc65503d73f66111487b84ef86d21dd64ffe091b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "566bb57a59358b418cd545bdd015fd1080b2432fd59ed64d1331fc2d9b070589"
+  end
+
   depends_on "rust" => :build
 
   def install
