@@ -1,14 +1,8 @@
 class ReadableNameGenerator < Formula
   desc "Generate a readable names suitable for infrastructure"
   homepage "https://github.com/PurpleBooth/readable-name-generator"
-  url "https://github.com/PurpleBooth/readable-name-generator/archive/v2.100.33.tar.gz"
-  sha256 "d1d7a5cd65635610eba7e50ef2b345e5eb894759a8bd926920429c4faa83834e"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/readable-name-generator-2.100.33"
-    sha256 cellar: :any_skip_relocation, big_sur:      "7decf63b1dcc465e9d3660f69128db294eba6b995d84fadb669434d1e4a02f75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e2fcf91fd3fc7a6db80403747597125f4b63da0d8ca407aa68421f039cc30776"
-  end
+  url "https://github.com/PurpleBooth/readable-name-generator/archive/v2.100.42.tar.gz"
+  sha256 "ca8015a9cb5b84157bacc7a87169e20b14368ed52a09f0b5fab0ac145b23bd23"
   depends_on "help2man" => :build
   depends_on "rust" => :build
   depends_on "specdown/repo/specdown" => :test
@@ -18,12 +12,9 @@ class ReadableNameGenerator < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     # Completions
-    output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "bash")
-    (bash_completion/"readable-name-generator").write output
-    output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "zsh")
-    (zsh_completion/"_readable-name-generator").write output
-    output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "fish")
-    (fish_completion/"readable-name-generator.fish").write output
+    generate_completions_from_executable(bin/"readable-name-generator", "--completion", "bash", shells: [:bash])
+    generate_completions_from_executable(bin/"readable-name-generator", "--completion", "zsh", shells: [:zsh])
+    generate_completions_from_executable(bin/"readable-name-generator", "--completion", "fish", shells: [:fish])
 
     # Man pages
     output = Utils.safe_popen_read("help2man", "#{bin}/readable-name-generator")
