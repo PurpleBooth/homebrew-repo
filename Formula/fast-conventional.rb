@@ -1,14 +1,8 @@
 class FastConventional < Formula
   desc "Make conventional commits, faster, and consistently name scopes"
   homepage "https://github.com/PurpleBooth/fast-conventional"
-  url "https://github.com/PurpleBooth/fast-conventional/archive/v2.2.11.tar.gz"
-  sha256 "4cf5380059b332d70d0ba419f16191efd1e633f5125d8bbcaf6aa47b21036dd5"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/fast-conventional-2.2.11"
-    sha256 cellar: :any_skip_relocation, big_sur:      "19517cff3e0664f8527b7e6f25629a5bea3bbc511f6d8bf6949c31201d1291e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "56794e3817ba1f11edee39eaaffa19b6574ce687f0f39ca6373146a8595f0d12"
-  end
+  url "https://github.com/PurpleBooth/fast-conventional/archive/v2.3.2.tar.gz"
+  sha256 "765a766f84b63b1ac3b706e96b998a0fe93bfe7b06b9838091b55cb133eed5cb"
 
   depends_on "help2man" => :build
   depends_on "rust" => :build
@@ -19,16 +13,13 @@ class FastConventional < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/fast-conventional", "completion", "bash")
-    (bash_completion/"fast-conventional").write output
+    generate_completions_from_executable(bin/"fast-conventional", "completion", "bash", shells: [:bash])
 
     # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/fast-conventional", "completion", "zsh")
-    (zsh_completion/"_fast-conventional").write output
+    generate_completions_from_executable(bin/"fast-conventional", "completion", "zsh", shells: [:zsh])
 
     # Install fish completion
-    output = Utils.safe_popen_read("#{bin}/fast-conventional", "completion", "fish")
-    (fish_completion/"fast-conventional.fish").write output
+    generate_completions_from_executable(bin/"fast-conventional", "completion", "fish", shells: [:fish])
 
     # Man pages
     output = Utils.safe_popen_read("help2man", "#{bin}/fast-conventional")
