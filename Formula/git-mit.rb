@@ -26,11 +26,11 @@ class GitMit < Formula
 
       # Completions
       generate_completions_from_executable(bin/binary, "--completion", shells: [
-        :bash, 
-        :elvish, 
-        :fish, 
-        :powershell, 
-        :zsh
+        :bash,
+        :elvish,
+        :fish,
+        :powershell,
+        :zsh,
       ])
 
       # Man pages
