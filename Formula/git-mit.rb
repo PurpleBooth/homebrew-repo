@@ -1,14 +1,8 @@
 class GitMit < Formula
   desc "Minimalist set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/v5.12.92.tar.gz"
-  sha256 "aab003dcb20f0a3426496f0f86873da12fe52ad7b05be79b1ced5cb934498a16"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-mit-5.12.92"
-    sha256 cellar: :any,                 big_sur:      "c4d6df54363f9199b16cf7ba78a936e044869cc8fdd38625f07539922f96a363"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e529164fe4050ee2766d6e4f8f41fa804d649bca625209aa643d55b29a1034c2"
-  end
+  url "https://github.com/PurpleBooth/git-mit/archive/v5.12.96.tar.gz"
+  sha256 "5ddac1fc9ea8e84270143a0ee7c7ff76873a88ebe5902a914daa54315246accd"
   depends_on "help2man" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
@@ -31,7 +25,13 @@ class GitMit < Formula
       system "cargo", "install", "--root", prefix, "--path", "./#{binary}/"
 
       # Completions
-      generate_completions_from_executable(bin/binary, "--completion", shells: [:zsh, :bash, :fish])
+      generate_completions_from_executable(bin/binary, "--completion", shells: [
+        :bash,
+        :elvish,
+        :fish,
+        :powershell,
+        :zsh,
+      ])
 
       # Man pages
       output = Utils.safe_popen_read("help2man", "#{bin}/#{binary}")
