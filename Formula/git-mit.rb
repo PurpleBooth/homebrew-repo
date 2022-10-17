@@ -22,18 +22,19 @@ class GitMit < Formula
       git-mit-install
     ].each do |binary|
       # Build binary
-      system "cargo", "install", "--root", prefix, "--path", "./#{binary}/"
+      system "cargo", "install", "--root", prefix, "--path", bin/binary.to_s
 
       # Completions
-      generate_completions_from_executable("#{bin}/#{binary}", "--completion", shells: [
+      generate_completions_from_executable(bin/binary.to_s, "--completion", shells: [
         :bash,
+        :elvish,
         :fish,
         :powershell,
         :zsh,
       ])
 
       # Man pages
-      output = Utils.safe_popen_read("help2man", "#{bin}/#{binary}")
+      output = Utils.safe_popen_read("help2man", bin/binary.to_s)
       (man1/"#{binary}.1").write output
     end
   end
