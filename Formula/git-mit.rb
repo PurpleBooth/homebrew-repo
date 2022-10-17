@@ -1,8 +1,8 @@
 class GitMit < Formula
   desc "Minimalist set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/v5.12.96.tar.gz"
-  sha256 "5ddac1fc9ea8e84270143a0ee7c7ff76873a88ebe5902a914daa54315246accd"
+  url "https://github.com/PurpleBooth/git-mit/archive/v5.12.98.tar.gz"
+  sha256 "e08dfbd3860525ef4fccce0aa0d629b6689eaca0e212e052a2a43ccb5a950de2"
   depends_on "help2man" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
@@ -22,19 +22,17 @@ class GitMit < Formula
       git-mit-install
     ].each do |binary|
       # Build binary
-      system "cargo", "install", "--root", prefix, "--path", "./#{binary}/"
+      system "cargo", "install", *std_cargo_args(path: "./#{binary}/")
 
       # Completions
-      generate_completions_from_executable(bin/binary, "--completion", shells: [
+      generate_completions_from_executable(bin/binary.to_s, "--completion", shells: [
         :bash,
-        :elvish,
         :fish,
-        :powershell,
         :zsh,
       ])
 
       # Man pages
-      output = Utils.safe_popen_read("help2man", "#{bin}/#{binary}")
+      output = Utils.safe_popen_read("help2man", bin/binary.to_s)
       (man1/"#{binary}.1").write output
     end
   end
