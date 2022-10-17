@@ -1,8 +1,8 @@
 class GitMit < Formula
   desc "Minimalist set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/v5.12.96.tar.gz"
-  sha256 "5ddac1fc9ea8e84270143a0ee7c7ff76873a88ebe5902a914daa54315246accd"
+  url "https://github.com/PurpleBooth/git-mit/archive/v5.12.97.tar.gz"
+  sha256 "a549ae8dba2e472b969975e4ad1dbdd13fe940762f93c261f9efecb83e948915"
   depends_on "help2man" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
@@ -25,7 +25,7 @@ class GitMit < Formula
       system "cargo", "install", "--root", prefix, "--path", "./#{binary}/"
 
       # Completions
-      generate_completions_from_executable(bin/binary, "--completion", shells: [
+      generate_completions_from_executable("#{bin}/#{binary}", "--completion", shells: [
         :bash,
         :elvish,
         :fish,
