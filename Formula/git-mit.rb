@@ -22,7 +22,7 @@ class GitMit < Formula
       git-mit-install
     ].each do |binary|
       # Build binary
-      system "cargo", "install", "--root", prefix, "--path", bin/binary.to_s
+      system "cargo", "install", *std_cargo_args(path: "./#{binary}/")
 
       # Completions
       generate_completions_from_executable(bin/binary.to_s, "--completion", shells: [
