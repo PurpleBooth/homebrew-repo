@@ -27,9 +27,7 @@ class GitMit < Formula
       # Completions
       generate_completions_from_executable(bin/binary.to_s, "--completion", shells: [
         :bash,
-        :elvish,
         :fish,
-        :powershell,
         :zsh,
       ])
 
