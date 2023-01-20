@@ -28,6 +28,6 @@ class ReadableNameGenerator < Formula
   test do
     system "#{bin}/readable-name-generator", "-h"
     system "#{bin}/readable-name-generator", "-V"
-    system "specdown run --temporary-workspace-dir --add-path \"#{bin}\" \"#{prefix}\/README.md\""
+    system "specdown run --temporary-workspace-dir --add-path \"#{bin}\" \"#{prefix}/README.md\""
   end
 end
