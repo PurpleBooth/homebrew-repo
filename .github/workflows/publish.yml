@@ -11,9 +11,13 @@ jobs:
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
     runs-on: ubuntu-latest
     steps:
+    - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      shell: bash
+      name: Ensure we have a modern version of brew
+    - run: brew update
+      name: Update brew's indexes
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
-    - run: brew update
     - name: Import GPG key
       uses: crazy-max/ghaction-import-gpg@v5
       with:

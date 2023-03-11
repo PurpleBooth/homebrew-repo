@@ -11,11 +11,14 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
+    - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      shell: bash
+      name: Ensure we have a modern version of brew
+    - run: brew update
+      name: Update brew's indexes
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
       id: set-up-homebrew
-
-    - run: brew update
     - name: Cache Homebrew Bundler RubyGems
       id: cache
       uses: actions/cache@v2.1.6
