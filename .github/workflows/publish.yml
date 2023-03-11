@@ -2,48 +2,34 @@ name: brew pr-pull
 on:
   pull_request_target:
     types:
-    - labeled
-
-concurrency: one_at_time
-
+      - labeled
 jobs:
   pr-pull:
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-    - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      shell: bash
-      name: Ensure we have a modern version of brew
-    - run: brew update
-      name: Update brew's indexes
-    - name: Set up Homebrew
-      uses: Homebrew/actions/setup-homebrew@master
-    - name: Import GPG key
-      uses: crazy-max/ghaction-import-gpg@v5
-      with:
-        gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-        passphrase: ${{ secrets.GPG_PASSPHRASE }}
-        git_user_signingkey: true
-        git_commit_gpgsign: true
-        git_tag_gpgsign: true
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
-    - name: Set up git
-      uses: Homebrew/actions/git-user-config@master
+      - name: Set up git
+        uses: Homebrew/actions/git-user-config@master
 
-    - name: Pull bottles
-      env:
-        HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
-        PULL_REQUEST: ${{ github.event.pull_request.number }}
-      run: brew pr-pull --debug --tap=$GITHUB_REPOSITORY $PULL_REQUEST
+      - name: Pull bottles
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
+          HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{ github.token }}
+          HOMEBREW_GITHUB_PACKAGES_USER: ${{ github.actor }}
+          PULL_REQUEST: ${{ github.event.pull_request.number }}
+        run: brew pr-pull --debug --tap=$GITHUB_REPOSITORY $PULL_REQUEST
 
-    - name: Push commits
-      uses: Homebrew/actions/git-try-push@master
-      with:
-        token: ${{ github.token }}
-        branch: main
+      - name: Push commits
+        uses: Homebrew/actions/git-try-push@master
+        with:
+          token: ${{ github.token }}
+          branch: main
 
-    - name: Delete branch
-      if: github.event.pull_request.head.repo.fork == false
-      env:
-        BRANCH: ${{ github.event.pull_request.head.ref }}
-      run: git push --delete origin $BRANCH
+      - name: Delete branch
+        if: github.event.pull_request.head.repo.fork == false
+        env:
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: git push --delete origin $BRANCH
