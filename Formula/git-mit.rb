@@ -1,5 +1,5 @@
 class GitMit < Formula
-  desc "Minimalist set of hooks to aid pairing and link commits to issues"
+  desc "A set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
   url "https://github.com/PurpleBooth/git-mit/archive/v5.12.146.tar.gz"
   sha256 "3405a7c7e8a37a365aae8896cf6cb0031f7efcf03d2d734e08344759ad5e433c"
