@@ -1,7 +1,7 @@
 class ReadableNameGenerator < Formula
   desc "Generate a readable names suitable for infrastructure"
   homepage "https://github.com/PurpleBooth/readable-name-generator"
-  url "https://github.com/PurpleBooth/readable-name-generator/archive/v2.100.44.tar.gz"
+  url "https://github.com/PurpleBooth/readable-name-generator/archive/refs/tags/v2.100.44.tar.gz"
   sha256 "a8c088112ed12145daf2fe2e2e413486d513d44e84893d91fa64d75e544bc266"
 
   bottle do
