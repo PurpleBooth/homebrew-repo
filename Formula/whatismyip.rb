@@ -1,7 +1,7 @@
 class Whatismyip < Formula
   desc "Manage and provision dotfiles"
   homepage "https://github.com/PurpleBooth/whatismyip"
-  url "https://github.com/PurpleBooth/whatismyip/archive/v0.10.1.tar.gz"
+  url "https://github.com/PurpleBooth/whatismyip/archive/refs/tags/v0.10.1.tar.gz"
   sha256 "4dde6a1642a8b50d6431c0b9f10fd35ea5a486532a5359e2478f4bf5b9bbf1c2"
 
   bottle do

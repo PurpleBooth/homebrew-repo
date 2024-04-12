@@ -1,7 +1,7 @@
 class FastConventional < Formula
   desc "Make conventional commits, faster, and consistently name scopes"
   homepage "https://github.com/PurpleBooth/fast-conventional"
-  url "https://github.com/PurpleBooth/fast-conventional/archive/v2.3.5.tar.gz"
+  url "https://github.com/PurpleBooth/fast-conventional/archive/refs/tags/v2.3.5.tar.gz"
   sha256 "115f8e05cf22f5285d5daab33a4d79b6ebf0618bdc726b08f36845420d01790b"
 
   depends_on "help2man" => :build
