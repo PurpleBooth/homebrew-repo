@@ -1,7 +1,7 @@
 class Gfmfmt < Formula
   desc "Format GitHub flavour markdown"
   homepage "https://github.com/PurpleBooth/gfmfmt"
-  url "https://github.com/PurpleBooth/gfmfmt/archive/v0.1.2.tar.gz"
+  url "https://github.com/PurpleBooth/gfmfmt/archive/refs/tags/v0.1.2.tar.gz"
   sha256 "73bec4420f82d64547532281c3aa72b0ee8d2ede824c61a08624c7b1979e299c"
 
   bottle do
