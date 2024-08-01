@@ -1,8 +1,8 @@
 class Gfmfmt < Formula
   desc "Format GitHub flavour markdown"
   homepage "https://github.com/PurpleBooth/gfmfmt"
-  url "https://github.com/PurpleBooth/gfmfmt/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "73bec4420f82d64547532281c3aa72b0ee8d2ede824c61a08624c7b1979e299c"
+  url "https://github.com/PurpleBooth/gfmfmt/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "ab367882ebc0ad72e68790aca5922ea573cd84bfc391b6d40fb74a9baa25ac38"
 
   bottle do
     root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/gfmfmt-0.1.2"
