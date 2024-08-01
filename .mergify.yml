@@ -1,16 +1,16 @@
 queue_rules:
 - name: default
   conditions:
-  - status-success=test-bot (ubuntu-22.04)
-  - status-success=test-bot (macos-13)
-  - status-success=test-bot (macos-14)
+  - status-success=brew test-bot / test-bot (ubuntu-22.04)
+  - status-success=brew test-bot / test-bot (macos-13)
+  - status-success=brew test-bot / test-bot (macos-14)
 
 pull_request_rules:
 - name: automatic rebase for releases
   conditions:
-  - status-success=test-bot (ubuntu-22.04)
-  - status-success=test-bot (macos-13)
-  - status-success=test-bot (macos-14)
+  - status-success=brew test-bot / test-bot (ubuntu-22.04)
+  - status-success=brew test-bot / test-bot (macos-13)
+  - status-success=brew test-bot / test-bot (macos-14)
   - base=main
   - label=releases
   - author=PurpleBooth
