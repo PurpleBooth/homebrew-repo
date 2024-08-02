@@ -1,8 +1,8 @@
 class GitMovesTogether < Formula
   desc "Find coupling in git repositories"
   homepage "https://github.com/PurpleBooth/git-moves-together"
-  url "https://github.com/PurpleBooth/git-moves-together/archive/refs/tags/v2.5.62.tar.gz"
-  sha256 "fb13115d71e4baf221bff4ac65c5cc86aee939ac2dfea3659f8a9810bd170f08"
+  url "https://github.com/PurpleBooth/git-moves-together/archive/refs/tags/v2.5.63.tar.gz"
+  sha256 "62b7274dc78d4668a455c1e769a58275b4869de42f16472eb1c222f8c90ca612"
 
   bottle do
     root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-moves-together-2.5.55"
