@@ -1,17 +1,11 @@
 class GitMit < Formula
   desc "Minimalist set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v5.13.11.tar.gz"
-  sha256 "d34efc9b08d0735f8a4b779720bd6e50bd0ebd0b12d69feed4a6f91aff2fd8aa"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-mit-5.13.11"
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c51a49ac6b523e394b3ee49d394c8b48e7064757d99d43b61a0d9338f55abc6e"
-  end
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v5.13.12.tar.gz"
+  sha256 "1904c73b705a44e0436149b6c40af8f92f248f3ac3266234baeb352b97c4407c"
   depends_on "help2man" => :build
   depends_on "homebrew/core/rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   on_linux do
     depends_on "libxcb"
     depends_on "libxkbcommon"
@@ -55,13 +49,13 @@ class GitMit < Formula
 
   test do
     system "git", "init", testpath
-    system "#{bin}/git-mit-install"
-    output = Utils.popen_read("#{bin}/git-mit-config", "mit", "example")
+    system bin/"git-mit-install"
+    output = Utils.popen_read(bin/"git-mit-config", "mit", "example")
     (testpath/"git-mit.toml").write output
-    system "#{bin}/git-mit", "-c", "git-mit.toml", "se"
-    system "#{bin}/git-mit-relates-to", "#12356"
+    system bin/"git-mit", "-c", "git-mit.toml", "se"
+    system bin/"git-mit-relates-to", "#12356"
     system "git", "add", testpath
     system "git", "commit", "-m", "Example Commit"
-    system "#{bin}/git-mit-config", "lint", "available"
+    system bin/"git-mit-config", "lint", "available"
   end
 end
