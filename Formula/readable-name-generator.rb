@@ -1,11 +1,10 @@
 class ReadableNameGenerator < Formula
   desc "Generate a readable names suitable for infrastructure"
   homepage "https://github.com/PurpleBooth/readable-name-generator"
-  url "https://github.com/PurpleBooth/readable-name-generator/archive/refs/tags/v2.100.58.tar.gz"
-  sha256 "8d1a0d1d8bc2289f375d8f617ecf8884f16a947537382f6b8f8662e87409fa38"
+  url "https://github.com/PurpleBooth/readable-name-generator/archive/refs/tags/v2.100.61.tar.gz"
+  sha256 "8b652967fe32be648faeb19f14e9e0467a0fbc3e66d87f755ad7c975db145ca1"
   depends_on "help2man" => :build
   depends_on "rust" => :build
-  depends_on "specdown/repo/specdown" => :test
 
   def install
     # Build binary
@@ -23,6 +22,6 @@ shells: [:bash, :zsh, :fish])
   test do
     system bin/"readable-name-generator", "-h"
     system bin/"readable-name-generator", "-V"
-    system "specdown run --temporary-workspace-dir --add-path \"#{bin}\" \"#{prefix}/README.md\""
+    assert_match "gregarious_pauli", shell_output(bin/"readable-name-generator --initial-seed 1")
   end
 end
