@@ -1,15 +1,8 @@
 class ReadableNameGenerator < Formula
   desc "Generate a readable names suitable for infrastructure"
   homepage "https://github.com/PurpleBooth/readable-name-generator"
-  url "https://github.com/PurpleBooth/readable-name-generator/archive/refs/tags/v4.0.2.tar.gz"
-  sha256 "0c6108735806ab6fe16b92175d483816a4b133f93040763144560945fedd657a"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/readable-name-generator-4.0.2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "11a4319ffcec6837eee26bd7111f2978615dd1291266a2205bfa9eaf9ddac097"
-    sha256 cellar: :any_skip_relocation, ventura:      "dbfd74357cb1696f65c05b54aeb2cc53c7c444afd25b92048fef105556c61903"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "56864a9656a1ad6998a44bf469c0062edef9531c2b8b3b4a8b7a3c16f2e8aea7"
-  end
+  url "https://github.com/PurpleBooth/readable-name-generator/archive/refs/tags/v4.0.3.tar.gz"
+  sha256 "91c6d3e451f7e28ae02edb3f20bb68dffe4fd5c663dfe8721b0aecaeb6ea7dc3"
   depends_on "help2man" => :build
   depends_on "rust" => :build
 
