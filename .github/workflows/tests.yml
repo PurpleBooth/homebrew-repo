@@ -36,6 +36,7 @@ jobs:
         if: github.event_name == 'pull_request'
 
       - name: Attest binaries
+        if: always() && github.event_name == 'pull_request'
         uses: actions/attest-build-provenance@v1
         with:
           subject-path: '*.bottle.*'
