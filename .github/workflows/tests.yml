@@ -31,6 +31,11 @@ jobs:
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
+      - name: Attest binaries
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: '*.bottle.*'
+
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'
         uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4
