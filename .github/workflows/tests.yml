@@ -6,6 +6,10 @@ on:
 
 jobs:
   test-bot:
+    permissions:
+      id-token: write
+      contents: read
+      attestations: write
     strategy:
       matrix:
         os: [ubuntu-22.04, macos-13, macos-14]
