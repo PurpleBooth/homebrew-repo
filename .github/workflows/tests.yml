@@ -5,6 +5,9 @@ on:
   pull_request:
 
 jobs:
+  lint-pipeline:
+    uses: armakuni/github-actions/.github/workflows/lint-pipeline.yml@cee3c433194a2e9ba4566d3423e4454f36fb97d0 # v0.19.3
+
   test-bot:
     permissions:
       id-token: write
