@@ -6,7 +6,7 @@ on:
 
 jobs:
   lint-pipeline:
-    uses: armakuni/github-actions/.github/workflows/lint-pipeline.yml@cee3c433194a2e9ba4566d3423e4454f36fb97d0 # v0.19.3
+    uses: armakuni/github-actions/.github/workflows/lint-pipeline.yml@a5fb943d5c31fcfaa03d562362224551d3e25acb # v0.19.4
 
   test-bot:
     permissions:
