@@ -2,20 +2,18 @@ name: brew test-bot
 
 on:
   push:
+    branches:
+      - main
   pull_request:
 
 jobs:
   lint-pipeline:
-    uses: armakuni/github-actions/.github/workflows/lint-pipeline.yml@a5fb943d5c31fcfaa03d562362224551d3e25acb # v0.19.4
+    uses: armakuni/github-actions/.github/workflows/lint-pipeline.yml@v0.19.4
 
   test-bot:
-    permissions:
-      id-token: write
-      contents: read
-      attestations: write
     strategy:
       matrix:
-        os: [ubuntu-22.04, macos-13, macos-14]
+        os: [ ubuntu-22.04, macos-13, macos-15 ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up Homebrew
@@ -23,7 +21,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Cache Homebrew Bundler RubyGems
-        uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4
+        uses: actions/cache@v4
         with:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
@@ -38,15 +36,9 @@ jobs:
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
-      - name: Attest binaries
-        if: always() && github.event_name == 'pull_request'
-        uses: actions/attest-build-provenance@1c608d11d69870c2092266b3f9a6f3abbf17002c # v1
-        with:
-          subject-path: '*.bottle.*'
-
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
+        uses: actions/upload-artifact@v4
         with:
           name: bottles_${{ matrix.os }}
           path: '*.bottle.*'
