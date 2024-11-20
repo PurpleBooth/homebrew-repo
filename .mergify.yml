@@ -1,37 +1,37 @@
 queue_rules:
-- name: default
-  queue_conditions:
-  - status-success=test-bot (ubuntu-22.04)
-  - status-success=test-bot (macos-13)
-  - status-success=test-bot (macos-14)
+  - name: default
+    queue_conditions:
+      - status-success=test-bot (ubuntu-22.04)
+      - status-success=test-bot (macos-13)
+      - status-success=test-bot (macos-14)
+      - base=main
+      - author~=^dependabot(|-preview)\[bot\]$
+    merge_conditions: []
+    merge_method: rebase
 
 pull_request_rules:
-- name: automatic rebase for releases
-  conditions:
-  - status-success=test-bot (ubuntu-22.04)
-  - status-success=test-bot (macos-13)
-  - status-success=test-bot (macos-14)
-  - base=main
-  - label=releases
-  - author=PurpleBooth
-  actions:
-    label:
-      add:
-      - pr-pull
+  - name: automatic rebase for releases
+    conditions:
+      - status-success=test-bot (ubuntu-22.04)
+      - status-success=test-bot (macos-13)
+      - status-success=test-bot (macos-14)
+      - base=main
+      - label=releases
+      - author=PurpleBooth
+    actions:
+      label:
+        add:
+          - pr-pull
 
-- name: request review on external contributor
-  conditions:
-  - -author=PurpleBooth
-  actions:
-    assign:
-      add_users:
-      - PurpleBooth
+  - name: request review on external contributor
+    conditions:
+      - -author=PurpleBooth
+    actions:
+      assign:
+        add_users:
+          - PurpleBooth
 
-- name: automatic rebase for dependencies
-  conditions:
-  - base=main
-  - author~=^dependabot(|-preview)\[bot\]$
-  actions:
-    queue:
-      merge_method: rebase
-      name: default
+  - name: refactored queue action rule
+    conditions: []
+    actions:
+      queue:
