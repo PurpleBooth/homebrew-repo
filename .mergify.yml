@@ -3,7 +3,7 @@ queue_rules:
     queue_conditions:
       - status-success=test-bot (ubuntu-22.04)
       - status-success=test-bot (macos-13)
-      - status-success=test-bot (macos-14)
+      - status-success=test-bot (macos-15)
       - base=main
       - author~=^dependabot(|-preview)\[bot\]$
     merge_conditions: []
@@ -14,7 +14,7 @@ pull_request_rules:
     conditions:
       - status-success=test-bot (ubuntu-22.04)
       - status-success=test-bot (macos-13)
-      - status-success=test-bot (macos-14)
+      - status-success=test-bot (macos-15)
       - base=main
       - label=releases
       - author=PurpleBooth
