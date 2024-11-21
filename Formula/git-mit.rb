@@ -1,14 +1,14 @@
 class GitMit < Formula
   desc "Minimalist set of hooks to aid pairing and link commits to issues"
   homepage "https://github.com/PurpleBooth/git-mit"
-  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v5.13.29.tar.gz"
-  sha256 "cbfa2f4b679307495b2d7218802901e877ffcab2cb99e7547bae90cfc7a0426e"
+  url "https://github.com/PurpleBooth/git-mit/archive/refs/tags/v5.14.2.tar.gz"
+  sha256 "19bea4f9d83c5b31d8db0eb9208437b668270b9459897614c32310a7d66ed99c"
 
   bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-mit-5.13.29"
-    sha256 cellar: :any,                 arm64_sonoma: "8da405c3482da14044f78ee7dda72cad2e1b0d7fdd3f8fba47d2d0f1f95eec6f"
-    sha256 cellar: :any,                 ventura:      "9d6682c277c39870c70d43e05a9a82d1702787c31402ce6ad0615415a4181623"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "01c92682b5c23075fec287be127030ff7c182387de2a8bff9cf6bbc17d33168f"
+    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-mit-5.14.2"
+    sha256 cellar: :any,                 arm64_sequoia: "434507e516dd442be558af0221cbdd1481436c84638f2d84af8f23d6039b351d"
+    sha256 cellar: :any,                 ventura:       "19cf1a39122c8bfe8fdff327a1187a1066cda7edb69d1f1b527d38bd4b5cec41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e73998422ebbdbdb4f4bc1441ec7c3cb43779b88d4df81591fcc6b4ae6e2ae39"
   end
   depends_on "help2man" => :build
   depends_on "homebrew/core/rust" => :build
