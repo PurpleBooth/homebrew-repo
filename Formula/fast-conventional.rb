@@ -5,6 +5,11 @@ class FastConventional < Formula
   version "2.3.75"
   sha256 "2aa68df64ff5799ec2f11f08311807bd3d7132d2a134af46016a6da141bf5a16"
 
+  bottle do
+    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/fast-conventional-2.3.75"
+    sha256 cellar: :any, ventura: "044d4d945f8603acec5cbd5cb63fffc8dae6fb512b166b94f66ebd2a4acd7dcc"
+  end
+
   depends_on "help2man" => :build
   depends_on "rust" => :build
   depends_on "socat" => :test
