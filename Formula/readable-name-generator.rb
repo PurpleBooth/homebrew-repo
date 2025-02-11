@@ -2,15 +2,8 @@ class ReadableNameGenerator < Formula
   desc "Generate a readable names suitable for infrastructure"
   homepage "https://codeberg.org/PurpleBooth/readable-name-generator"
   url "https://codeberg.org/PurpleBooth/readable-name-generator/archive/main.tar.gz"
-  version "4.1.27"
-  sha256 "2a9474431059ab8d84ace10036d45e6b2ab4d78a210543042dca2fb16fadac87"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/readable-name-generator-4.1.27"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cbe8955e4dc78fac7ba41eba66211c056a4f0669de84b166e51d7c1644aea04f"
-    sha256 cellar: :any_skip_relocation, ventura:       "1a3c834ddd71c0e6edb747acc5cb20a1775d9d1bb2dd60552069eb84f13b66ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e990216dc6aeaedac2d72f248eebbbfac9c7defa5b95ee41fa4d9bf39bbea049"
-  end
+  version "4.1.30"
+  sha256 "a9dc00f63e5a0613dc3acca7a960430cf4f5015c6e30592c8fe627d2e59e92e3"
   depends_on "help2man" => :build
   depends_on "rust" => :build
 
@@ -30,6 +23,6 @@ shells: [:bash, :zsh, :fish])
   test do
     system bin/"readable-name-generator", "-h"
     system bin/"readable-name-generator", "-V"
-    assert_match "gregarious_pauli", shell_output(bin/"readable-name-generator --initial-seed 1")
+    assert_match "flexible_briseglace", shell_output(bin/"readable-name-generator --initial-seed 1")
   end
 end
