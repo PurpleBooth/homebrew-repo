@@ -2,15 +2,8 @@ class GitMovesTogether < Formula
   desc "Find coupling in git repositories"
   homepage "https://codeberg.org/PurpleBooth/git-moves-together"
   url "https://codeberg.org/PurpleBooth/git-moves-together/archive/main.tar.gz"
-  version "2.7.0"
-  sha256 "018d70842ebc729036cc9b1aaba9769134e59d07460ec6ff9419d43f02c83cc6"
-
-  bottle do
-    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/git-moves-together-2.7.0"
-    sha256 cellar: :any,                 arm64_sequoia: "c8d34ae141ffde3733e0aac7ba10e0e6a5f603e897a3e6b66839b92d49023e18"
-    sha256 cellar: :any,                 ventura:       "fb62ffeb708e15470a241fd02c884bc49c37f80ffd760e1b2c32d721221707c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2453366fa2cc8dce852863659e17754c4f4ec06a7db634f1d50792834311442"
-  end
+  version "2.8.0"
+  sha256 "15423fdc66f5d01ed91c51b2d5d1d0ebe744ff95f14270c6344da25b8b7fbb5b"
 
   depends_on "rust" => :build
   depends_on "openssl@3"
