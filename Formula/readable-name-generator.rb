@@ -4,6 +4,13 @@ class ReadableNameGenerator < Formula
   url "https://codeberg.org/PurpleBooth/readable-name-generator/archive/main.tar.gz"
   version "4.1.68"
   sha256 "34f664490fb17232809d4a2731341421b9107e94c34cbbde6b9bbae748a6b541"
+
+  bottle do
+    root_url "https://github.com/PurpleBooth/homebrew-repo/releases/download/readable-name-generator-4.1.68"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9f7a137d8197d1cd5585e40aed8a53dd06778e6ea555ca52f0cf67d1ef64ad7"
+    sha256 cellar: :any_skip_relocation, ventura:       "01b6bbb0230c2efdf2cc85722f1135b85dc613def92a69acf60d7c47ae55bd2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35e97811063a295f168480baef1f03a1a2e9c540bf085b7f57ddc588cd7af93b"
+  end
   depends_on "help2man" => :build
   depends_on "rust" => :build
 
