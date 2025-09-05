@@ -1,8 +1,8 @@
 class Whatismyip < Formula
   desc "Work out what your IP is"
   homepage "https://codeberg.org/PurpleBooth/whatismyip"
-  url "https://codeberg.org/PurpleBooth/whatismyip/archive/v0.15.0.tar.gz"
-  sha256 "ed03c739f2b71f0537f1b58e07d8d3013f7b052d96636746f0f674ea572273db"
+  url "https://codeberg.org/PurpleBooth/whatismyip/archive/v0.15.7.tar.gz"
+  sha256 "f9864f8a6b14b4c8ae18e0f7e01b5c6010b5997f748bd61a8d3034d11a8c7f21"
   depends_on "rust" => :build
 
   def install
