@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint-pipeline:
-    uses: armakuni/github-actions/.github/workflows/lint-pipeline.yml@11b1e35c9a438668e7976b7c07fe1a0e49962810 # v0.19.7
+    uses: armakuni/github-actions/.github/workflows/lint-pipeline.yml@71f2a7be9f2b7afb25c2b979c4165ce99d325e57 # v0.19.10
 
   test-bot:
     strategy:
