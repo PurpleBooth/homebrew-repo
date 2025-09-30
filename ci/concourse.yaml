@@ -3,6 +3,7 @@
 # - Triggers daily and on any change to main
 # - Uses the official homebrew/brew image to run `brew style --fix`
 # - Commits and pushes any changes back to the repository
+
 jobs:
   - name: format-homebrew-formulae
     serial: true
@@ -65,6 +66,47 @@ jobs:
           rebase: true
         get_params:
           skip_download: true
+
+  - name: format-yaml
+    serial: true
+    plan:
+      - get: ci-runtime-env
+      - get: task
+      - get: tap-repo
+        trigger: true
+        version: latest
+      - get: daily
+        trigger: true
+      - task: yamlfix-fix
+        file: task/concourse/tasks/yamlfix-fix/task.yaml
+        image: ci-runtime-env
+        input_mapping:
+          src: tap-repo
+        output_mapping:
+          src: tap-repo
+      - task: git-commit
+        file: task/concourse/tasks/git-commit/task.yaml
+        image: ci-runtime-env
+        input_mapping:
+          src: tap-repo
+        output_mapping:
+          src: tap-repo
+        params:
+          ADD: .
+          MESSAGE: 'style(yaml): apply auto-fixes'
+          GIT_COMMITTER_NAME: ((bot.name))
+          GIT_COMMITTER_EMAIL: ((bot.email))
+          GIT_AUTHOR_NAME: ((bot.name))
+          GIT_AUTHOR_EMAIL: ((bot.email))
+          GPG_SIGNING_PRIVATE_KEY: ((gpg.signing_private_key))
+          GPG_SIGNING_PRIVATE_PASSWORD: ((gpg.signing_private_password))
+      - put: tap-repo
+        params:
+          repository: tap-repo
+          rebase: true
+        get_params:
+          skip_download: true
+
 # -----------------------------------------------------------------------------
 # Resources
 # -----------------------------------------------------------------------------
@@ -77,15 +119,14 @@ resources:
       uri: ((git.uri))
       branch: ((git.branch))
       private_key: ((vault:git.private_key))
-      depth: -1
-      fetch_tags: true
-      paths: [Formula/**, ci/**]
     webhook_token: ((vault:webhook.token))
+
   - name: daily
     type: time
     icon: clock
     source:
       interval: 24h
+
   - name: task
     type: git
     icon: git
@@ -100,6 +141,7 @@ resources:
         - name: user.email
           value: solace-system-renovate-fox@example.com
     webhook_token: ((vault:webhook.token))
+
   - name: ci-runtime-env
     icon: docker
     check_every: 24h
