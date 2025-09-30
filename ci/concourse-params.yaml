@@ -1,0 +1,12 @@
+# Example vars file for ci/concourse.yaml
+# Fill in with your actual repository details and bot identity.
+
+# Git resource configuration
+git:
+  uri: git@github.com:PurpleBooth/homebrew-repo.git
+  branch: main
+
+# Commit bot identity
+bot:
+  name: Homebrew Formatter [bot]
+  email: homebrew-formatter@example.com
