@@ -3,7 +3,6 @@
 # - Triggers daily and on any change to main
 # - Uses the official homebrew/brew image to run `brew style --fix`
 # - Commits and pushes any changes back to the repository
-
 jobs:
   - name: format-homebrew-formulae
     serial: true
@@ -66,7 +65,6 @@ jobs:
           rebase: true
         get_params:
           skip_download: true
-
   - name: format-yaml
     serial: true
     plan:
@@ -106,7 +104,6 @@ jobs:
           rebase: true
         get_params:
           skip_download: true
-
 # -----------------------------------------------------------------------------
 # Resources
 # -----------------------------------------------------------------------------
@@ -120,13 +117,11 @@ resources:
       branch: ((git.branch))
       private_key: ((vault:git.private_key))
     webhook_token: ((vault:webhook.token))
-
   - name: daily
     type: time
     icon: clock
     source:
       interval: 24h
-
   - name: task
     type: git
     icon: git
@@ -141,7 +136,6 @@ resources:
         - name: user.email
           value: solace-system-renovate-fox@example.com
     webhook_token: ((vault:webhook.token))
-
   - name: ci-runtime-env
     icon: docker
     check_every: 24h
