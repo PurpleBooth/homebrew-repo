@@ -5,6 +5,15 @@
 # - Commits and pushes any changes back to the repository
 
 jobs:
+  - name: set-pipeline
+    serial: true
+    plan:
+      - get: tap-repo
+        trigger: true
+      - set_pipeline: self
+        file: tap-repo/ci/concourse.yaml
+        var_files:
+          - tap-repo/ci/concourse-params.yaml
   - name: validate-tap
     serial: true
     plan:
