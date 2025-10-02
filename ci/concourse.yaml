@@ -9,6 +9,7 @@ jobs:
     serial: true
     plan:
       - get: ci-runtime-env
+        passed: [verify-runtime-env]
       - get: task
       - get: tap-repo
         trigger: true
@@ -127,6 +128,30 @@ jobs:
                 rebase: true
               get_params:
                 skip_download: true
+
+  - name: verify-runtime-env
+    plan:
+      - get: task
+      - get: ci-runtime-env
+        trigger: true
+      - do:
+          - load_var: tag
+            file: ci-runtime-env/tag
+          - load_var: digest
+            file: ci-runtime-env/digest
+          - task: cosign-verify-registry-image
+            file: task/concourse/tasks/cosign-verify-registry-image/task.yaml
+            input_mapping:
+              task: task
+              image: ci-runtime-env
+            params:
+              DOCKER_REGISTRY: europe-west10-docker.pkg.dev
+              DOCKER_USERNAME: ((vault:gar.username))
+              DOCKER_PASSWORD: ((vault:gar.password))
+              IMAGE: ((ci_image.repository)):((.:tag))@((.:digest))
+              COSIGN_PASSWORD: ((vault:cosign.password))
+              COSIGN_PRIVATE_KEY: ((vault:cosign.private_key))
+              COSIGN_PUBLIC_KEY: ((vault:cosign.public_key))
 
 # -----------------------------------------------------------------------------
 # Resources
