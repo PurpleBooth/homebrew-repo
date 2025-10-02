@@ -157,7 +157,7 @@ jobs:
               DOCKER_REGISTRY: europe-west10-docker.pkg.dev
               DOCKER_USERNAME: ((vault:gar.username))
               DOCKER_PASSWORD: ((vault:gar.password))
-              IMAGE: ((ci_image.repository)):((.:tag))@((.:digest))
+              IMAGE:  europe-west10-docker.pkg.dev/purplebooth-gke/optimistic-robbie/ci-runtime-env:((.:tag))@((.:digest))
               COSIGN_PASSWORD: ((vault:cosign.password))
               COSIGN_PRIVATE_KEY: ((vault:cosign.private_key))
               COSIGN_PUBLIC_KEY: ((vault:cosign.public_key))
