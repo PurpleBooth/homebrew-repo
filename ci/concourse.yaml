@@ -3,7 +3,6 @@
 # - Triggers daily and on any change to main
 # - Uses the official homebrew/brew image to run `brew style --fix`
 # - Commits and pushes any changes back to the repository
-
 jobs:
   - name: set-pipeline
     serial: true
@@ -12,8 +11,7 @@ jobs:
         trigger: true
       - set_pipeline: self
         file: tap-repo/ci/concourse.yaml
-        var_files:
-          - tap-repo/ci/concourse-params.yaml
+        var_files: [tap-repo/ci/concourse-params.yaml]
   - name: validate-tap
     serial: true
     plan:
@@ -137,7 +135,6 @@ jobs:
                 rebase: true
               get_params:
                 skip_download: true
-
   - name: verify-runtime-env
     plan:
       - get: task
@@ -157,11 +154,10 @@ jobs:
               DOCKER_REGISTRY: europe-west10-docker.pkg.dev
               DOCKER_USERNAME: ((vault:gar.username))
               DOCKER_PASSWORD: ((vault:gar.password))
-              IMAGE:  europe-west10-docker.pkg.dev/purplebooth-gke/optimistic-robbie/ci-runtime-env:((.:tag))@((.:digest))
+              IMAGE: europe-west10-docker.pkg.dev/purplebooth-gke/optimistic-robbie/ci-runtime-env:((.:tag))@((.:digest))
               COSIGN_PASSWORD: ((vault:cosign.password))
               COSIGN_PRIVATE_KEY: ((vault:cosign.private_key))
               COSIGN_PUBLIC_KEY: ((vault:cosign.public_key))
-
 # -----------------------------------------------------------------------------
 # Resources
 # -----------------------------------------------------------------------------
@@ -175,13 +171,11 @@ resources:
       branch: ((git.branch))
       private_key: ((vault:git.private_key))
     webhook_token: ((vault:webhook.token))
-
   - name: daily
     type: time
     icon: clock
     source:
       interval: 24h
-
   - name: task
     type: git
     icon: git
@@ -196,7 +190,6 @@ resources:
         - name: user.email
           value: solace-system-renovate-fox@example.com
     webhook_token: ((vault:webhook.token))
-
   - name: ci-runtime-env
     icon: docker
     check_every: 24h
