@@ -165,12 +165,3 @@ resources:
         - name: user.email
           value: solace-system-renovate-fox@example.com
     webhook_token: ((vault:webhook.token))
-  - name: ci-runtime-env
-    icon: docker
-    check_every: 24h
-    source:
-      password: ((vault:gar.password))
-      repository: europe-west10-docker.pkg.dev/purplebooth-gke/optimistic-robbie/ci-runtime-env
-      tag: latest
-      username: ((vault:gar.username))
-    type: registry-image
