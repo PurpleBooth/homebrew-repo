@@ -77,7 +77,6 @@ jobs:
                       chown -vR root:root *
             - task: git-commit
               file: task/concourse/tasks/git-commit/task.yaml
-
               input_mapping:
                 src: tap-repo
               output_mapping:
@@ -99,21 +98,18 @@ jobs:
                 skip_download: true
       - task: yamlfix-check
         file: task/concourse/tasks/yamlfix-check/task.yaml
-
         input_mapping:
           src: tap-repo
         on_failure:
           do:
             - task: yamlfix-fix
               file: task/concourse/tasks/yamlfix-fix/task.yaml
-
               input_mapping:
                 src: tap-repo
               output_mapping:
                 src: tap-repo
             - task: git-commit
               file: task/concourse/tasks/git-commit/task.yaml
-
               input_mapping:
                 src: tap-repo
               output_mapping:
