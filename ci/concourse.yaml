@@ -76,7 +76,7 @@ jobs:
                       su - linuxbrew -c "cd \"$(pwd)\" && \"$BREW_COMMAND\" style --fix Formula/*.rb"
                       chown -vR root:root *
             - task: git-commit
-              file: task/concourse/tasks/git-commit/task.yaml
+              file: task/concourse/tasks/git/commit.yaml
               input_mapping:
                 src: tap-repo
               output_mapping:
@@ -97,19 +97,19 @@ jobs:
               get_params:
                 skip_download: true
       - task: yamlfix-check
-        file: task/concourse/tasks/yamlfix-check/task.yaml
+        file: task/concourse/tasks/yamlfix/diff.yaml
         input_mapping:
           src: tap-repo
         on_failure:
           do:
             - task: yamlfix-fix
-              file: task/concourse/tasks/yamlfix-fix/task.yaml
+              file: task/concourse/tasks/yamlfix/write.yaml
               input_mapping:
                 src: tap-repo
               output_mapping:
                 src: tap-repo
             - task: git-commit
-              file: task/concourse/tasks/git-commit/task.yaml
+              file: task/concourse/tasks/git/commit.yaml
               input_mapping:
                 src: tap-repo
               output_mapping:
