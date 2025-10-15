@@ -22,13 +22,13 @@ jobs:
       - get: daily
         trigger: true
       - task: brew-style-check
-        file: task/concourse/tasks/brew/style.yaml
+        file: task/concourse/task/brew/style.yaml
         on_failure:
           do:
             - task: brew-style-fix
-              file: task/concourse/tasks/brew/style-fix.yaml
+              file: task/concourse/task/brew/style-fix.yaml
             - task: git-commit
-              file: task/concourse/tasks/git/commit.yaml
+              file: task/concourse/task/git/commit.yaml
               input_mapping:
                 src: tap-repo
               output_mapping:
@@ -49,19 +49,19 @@ jobs:
               get_params:
                 skip_download: true
       - task: yamlfix-check
-        file: task/concourse/tasks/yamlfix/diff.yaml
+        file: task/concourse/task/yamlfix/diff.yaml
         input_mapping:
           src: tap-repo
         on_failure:
           do:
             - task: yamlfix-fix
-              file: task/concourse/tasks/yamlfix/write.yaml
+              file: task/concourse/task/yamlfix/write.yaml
               input_mapping:
                 src: tap-repo
               output_mapping:
                 src: tap-repo
             - task: git-commit
-              file: task/concourse/tasks/git/commit.yaml
+              file: task/concourse/task/git/commit.yaml
               input_mapping:
                 src: tap-repo
               output_mapping:
