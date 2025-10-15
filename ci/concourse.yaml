@@ -49,7 +49,7 @@ jobs:
               get_params:
                 skip_download: true
       - task: yamlfix-check
-        file: task/concourse/task/yamlfix/diff.yaml
+        file: task/concourse/task/yamlfix/check.yaml
         input_mapping:
           src: tap-repo
         on_failure:
