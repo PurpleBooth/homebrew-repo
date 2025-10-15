@@ -22,59 +22,11 @@ jobs:
       - get: daily
         trigger: true
       - task: brew-style-check
-        config:
-          platform: linux
-          image_resource:
-            type: registry-image
-            source:
-              repository: homebrew/brew
-              tag: latest
-          inputs:
-            - name: tap-repo
-          outputs:
-            - name: tap-repo
-          run:
-            path: bash
-            user: root
-            dir: tap-repo
-            args:
-              - -xeuo
-              - pipefail
-              - -c
-              - |
-                chown -vR linuxbrew:linuxbrew *
-                BREW_COMMAND="$(command -v brew)"
-                su - linuxbrew -c "cd \"$(pwd)\" && \"$BREW_COMMAND\" style Formula/*.rb"
+        file: task/concourse/tasks/brew/style.yaml
         on_failure:
           do:
             - task: brew-style-fix
-              config:
-                platform: linux
-                image_resource:
-                  type: registry-image
-                  source:
-                    repository: homebrew/brew
-                    tag: latest
-                inputs:
-                  - name: tap-repo
-                outputs:
-                  - name: tap-repo
-                params:
-                  GIT_AUTHOR_NAME: ((bot.name))
-                  GIT_AUTHOR_EMAIL: ((bot.email))
-                run:
-                  path: bash
-                  user: root
-                  dir: tap-repo
-                  args:
-                    - -xeuo
-                    - pipefail
-                    - -c
-                    - |
-                      chown -vR linuxbrew:linuxbrew *
-                      BREW_COMMAND="$(command -v brew)"
-                      su - linuxbrew -c "cd \"$(pwd)\" && \"$BREW_COMMAND\" style --fix Formula/*.rb"
-                      chown -vR root:root *
+              file: task/concourse/tasks/brew/style-fix.yaml
             - task: git-commit
               file: task/concourse/tasks/git/commit.yaml
               input_mapping:
