@@ -6,7 +6,7 @@ on:
   pull_request:
 jobs:
   lint-pipeline:
-    uses: armakuni/github-actions/.github/workflows/lint-pipeline.yml@2fa76faf8e4537cec198c85c1cef01070f9b6bf0  # v0.19.11
+    uses: armakuni/github-actions/.github/workflows/lint-pipeline.yml@263275b7b90c27e4b97b03a147f7a40ba0dc4d8b  # v0.19.14
   test-bot:
     strategy:
       matrix:
